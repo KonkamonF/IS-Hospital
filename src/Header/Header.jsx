@@ -17,17 +17,16 @@ export default function Header() {
   };
   const toggleMenu = () => setOpen((v) => !v);
 
+  const [active, setActive] = useState("home");
+  const base = "px-3 py-2 rounded-md transition";
+  const focusOnly =
+    "focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 focus:ring-offset-[#004d21]";
+  const activeRing =
+    "ring-2 ring-amber-400 ring-offset-2 ring-offset-[#004d21]";
+
   return (
     <header className="relative">
       <div className="flex items-center gap-4 px-4">
-        <nav className="hidden md:flex items-center gap-4">
-          <a href="/">Home</a>
-          <a href="/">Services</a>
-          <a href="/">Visitor Guides</a>
-          <a href="/">Be Healthy</a>
-          <a href="/">About Us</a>
-        </nav>
-
         <button
           type="button"
           onClick={() => setMobileOpen((v) => !v)}
@@ -37,6 +36,61 @@ export default function Header() {
         >
           <img src={LogononText} alt="Logo" className="w-[10%] min-w-[56px]" />
         </button>
+
+        <nav className="hidden md:flex items-center gap-4">
+          {[
+            { label: "Home", href: "/" },
+            { label: "Services", href: "/services" },
+            { label: "Visitor Guides", href: "/guides" },
+            { label: "Be Healthy", href: "/healthy" },
+            { label: "About Us", href: "/about" },
+          ].map((l) => (
+            <a
+              key={l.href}
+              href={l.href}
+              onMouseDown={(e) => e.preventDefault()} // กัน default ที่ดึงโฟกัส/รีเฟรชทันที
+              onClick={(e) => {
+                e.currentTarget.focus(); // คงโฟกัสไว้ → ring อยู่
+                window.location.assign("/"); // จากนั้นค่อยนำทางด้วย JS
+              }}
+              className="
+         px-3 py-2 rounded-md
+    focus:outline-none focus:ring-2 focus:ring-amber-400
+    focus:ring-offset-2 focus:ring-offset-[#004d21]
+    active:ring-2 active:ring-amber-400
+    transition
+      "
+            >
+              {l.label}
+            </a>
+          ))}
+        </nav>
+
+        {/* hover ring */}
+        {/* <nav className="flex gap-3">
+          <a
+            href="#home"
+            onClick={(e) => {
+              e.preventDefault();
+              setActive("home");
+            }}
+            className={`${base} ${active === "home" ? activeRing : focusOnly}`}
+          >
+            Home
+          </a>
+          <a
+            href="#services"
+            onClick={(e) => {
+              e.preventDefault();
+              setActive("services");
+            }}
+            className={`${base} ${
+              active === "services" ? activeRing : focusOnly
+            }`}
+          >
+            Services
+          </a>
+        </nav> */}
 
         <div
           className="relative ml-auto"
@@ -48,7 +102,7 @@ export default function Header() {
             onClick={toggleMenu}
             aria-haspopup="menu"
             aria-expanded={open}
-            className="inline-flex items-center justify-center w-9 h-9 rounded-full hover:bg-black/5 focus:outline-none focus:ring-2 focus:ring-amber-400"
+            className="inline-flex items-center justify-center w-9 h-9 rounded-full hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-amber-400"
           >
             <IoPersonCircleOutline size={24} />
           </button>
