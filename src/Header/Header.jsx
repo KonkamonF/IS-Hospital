@@ -26,7 +26,7 @@ export default function Header() {
 
   return (
     <header className="relative">
-      <div className="flex items-center gap-4  w-full">
+      <div className="flex items-center w-screen">
         <button
           type="button"
           onClick={() => setMobileOpen((v) => !v)}
