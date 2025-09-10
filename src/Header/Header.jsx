@@ -26,7 +26,7 @@ export default function Header() {
 
   return (
     <header className="relative">
-      <div className="flex items-center gap-4 px-4">
+      <div className="flex items-center gap-4  w-full">
         <button
           type="button"
           onClick={() => setMobileOpen((v) => !v)}
@@ -108,7 +108,7 @@ export default function Header() {
           </button>
 
           <div
-            className={`absolute right-0 mt-2 w-48 rounded-lg shadow-lg bg-white text-[#004d21] overflow-hidden z-50
+            className={`absolute right-0 mt-2 w-full rounded-lg shadow-lg bg-white text-[#004d21] overflow-hidden z-50
               transform origin-top transition
               ${
                 open
