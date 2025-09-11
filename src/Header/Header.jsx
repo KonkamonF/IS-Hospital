@@ -65,7 +65,6 @@ export default function Header() {
             </a>
           ))}
         </nav>
-
         <div
           className="relative ml-auto md:mr-6 lg:mr-10"
           onMouseEnter={openMenu}
@@ -83,9 +82,9 @@ export default function Header() {
 
           <div
             className={`absolute
-        left-1/2 -translate-x-1/2 top-[calc(100%+0.5rem)]
+        left-1/2 -translate-x-3/4 top-[calc(100%+1rem)]
         md:left-auto md:right-0 md:translate-x-0 md:top-full md:mt-2
-        min-w-[190px] w-56
+        w-[150px]
         overflow-hidden z-50 rounded-xl border border-[#42C2FF]
         text-[#2155CD] bg-white shadow-md divide-y divide-[#42C2FF]
         transform origin-top md:origin-top-right transition
