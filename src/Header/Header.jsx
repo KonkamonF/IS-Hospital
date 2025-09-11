@@ -37,7 +37,7 @@ function NavDropdown({ label, items }) {
         className={`absolute right-0 top-full mt-2
           w-[150px] min-w-[150px]
           overflow-hidden z-50 rounded-xl border border-[#42C2FF]
-          text-[#2155CD] bg-white shadow-md divide-y divide-[#42C2FF]
+          shadow-md divide-y divide-[#42C2FF]
           transform origin-top-right transition
           ${
             open
@@ -156,7 +156,7 @@ export default function Header() {
               md:left-auto md:right-0 md:translate-x-0 md:top-full md:mt-2
               w-[150px]
               overflow-hidden z-50 rounded-xl border border-[#42C2FF]
-              text-[#2155CD] bg-white shadow-md divide-y divide-[#42C2FF]
+              shadow-md divide-y divide-[#42C2FF]
               transform origin-top md:origin-top-right transition
               ${
                 open
@@ -193,7 +193,7 @@ export default function Header() {
         className={`md:hidden px-8 transition-[max-height,opacity] duration-300 ease-out overflow-hidden
           ${mobileOpen ? "max-h-60 opacity-100 pb-4" : "max-h-0 opacity-0"}`}
       >
-        <div className="rounded-xl border-1 border-[#42C2FF] text-[#2155CD] shadow-md divide-y divide-[#42C2FF] ">
+        <div className="rounded-xl border-1 border-[#42C2FF] shadow-md divide-y divide-[#42C2FF] ">
           <a
             href="/"
             className="block px-4 py-2 hover:rounded-xl hover:bg-[#42C2FF] hover:text-white"

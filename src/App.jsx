@@ -1,10 +1,11 @@
 import MainComponent from "./component/MainComponent";
 
 function App() {
-
   return (
     <>
-     <MainComponent/>
+      <div className="text-[#2155CD]">
+        <MainComponent />
+      </div>
     </>
   );
 }
