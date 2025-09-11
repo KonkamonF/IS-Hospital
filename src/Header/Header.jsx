@@ -3,7 +3,6 @@ import LogononText from "../assets/LogononText.png";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import { MdPersonAddAlt1, MdPersonSearch } from "react-icons/md";
 
-/* เมนู dropdown สำหรับเดสก์ท็อป (md+) */
 function NavDropdown({ label, items }) {
   const [open, setOpen] = useState(false);
   const timer = useRef(null);
@@ -27,7 +26,7 @@ function NavDropdown({ label, items }) {
         aria-haspopup="menu"
         aria-expanded={open}
         className="px-3 py-2 rounded-md hover:bg-gray-200
-                   focus:outline-none focus:ring-2 focus:ring-[#42C2FF]
+                   focus:outline-none focus:ring-2 focus:ring-[#a1e1ff]
                    focus:ring-offset-2 focus:ring-offset-[#2155CD] transition"
       >
         {label}
@@ -37,7 +36,7 @@ function NavDropdown({ label, items }) {
         className={`absolute right-0 top-full mt-2
           w-[150px] min-w-[150px]
           overflow-hidden z-50 rounded-xl border border-[#42C2FF]
-          shadow-md divide-y divide-[#42C2FF] bg-white
+          shadow-md divide-y divide-[#42C2FF] bg-white 
           transform origin-top-right transition
           ${
             open
@@ -94,8 +93,8 @@ export default function Header() {
         <nav className="hidden md:flex items-center gap-4">
           <a
             href="/"
-            className="px-3 py-2 rounded-md
-                       focus:outline-none focus:ring-2 focus:ring-[#42C2FF]
+            className="px-3 py-2 rounded-md hover:bg-gray-200
+                       focus:outline-none focus:ring-2 focus:ring-[#a1e1ff]
                        focus:ring-offset-2 focus:ring-offset-[#2155CD] transition"
           >
             Home
@@ -125,8 +124,8 @@ export default function Header() {
 
           <a
             href="/about"
-            className="px-3 py-2 rounded-md
-                       focus:outline-none focus:ring-2 focus:ring-[#42C2FF]
+            className="px-3 py-2 rounded-md hover:bg-gray-200
+                       focus:outline-none focus:ring-2 focus:ring-[#a1e1ff]
                        focus:ring-offset-2 focus:ring-offset-[#2155CD] transition"
           >
             About Us
@@ -172,7 +171,7 @@ export default function Header() {
               onClick={() => setOpen(false)}
             >
               <span>Sign-In</span>
-              <MdPersonSearch color="#cd2d33"/>
+              <MdPersonSearch color="#cd2d33" />
             </a>
             <a
               href="/signup"
@@ -181,7 +180,7 @@ export default function Header() {
               onClick={() => setOpen(false)}
             >
               <span>Sign-Up</span>
-              <MdPersonAddAlt1 color="#cd2d33"/>
+              <MdPersonAddAlt1 color="#cd2d33" />
             </a>
           </div>
         </div>
@@ -193,7 +192,7 @@ export default function Header() {
         className={`md:hidden px-8 transition-[max-height,opacity] duration-300 ease-out overflow-hidden
           ${mobileOpen ? "max-h-60 opacity-100 pb-4" : "max-h-0 opacity-0"}`}
       >
-        <div className="rounded-xl border-1 border-[#42C2FF] shadow-md divide-y divide-[#42C2FF] ">
+        <div className="rounded-xl border-1 border-[#42C2FF] shadow-md divide-y divide-[#42C2FF]">
           <a
             href="/"
             className="block px-4 py-2 hover:rounded-xl hover:bg-[#42C2FF] hover:text-white"
