@@ -32,9 +32,9 @@ export default function Header() {
           onClick={() => setMobileOpen((v) => !v)}
           aria-expanded={mobileOpen}
           aria-controls="mobile-nav"
-          className="shrink-0"
+         
         >
-          <img src={LogononText} alt="Logo" className="w-[10%] min-w-[56px]" />
+          <img src={LogononText} alt="Logo" className="w-[70px] " />
         </button>
 
         <nav className="hidden md:flex items-center gap-4">
@@ -48,10 +48,10 @@ export default function Header() {
             <a
               key={l.href}
               href={l.href}
-              onMouseDown={(e) => e.preventDefault()} // กัน default ที่ดึงโฟกัส/รีเฟรชทันที
+              onMouseDown={(e) => e.preventDefault()} 
               onClick={(e) => {
-                e.currentTarget.focus(); // คงโฟกัสไว้ → ring อยู่
-                window.location.assign("/"); // จากนั้นค่อยนำทางด้วย JS
+                e.currentTarget.focus(); 
+                window.location.assign("/");
               }}
               className="
          px-3 py-2 rounded-md
@@ -93,7 +93,7 @@ export default function Header() {
         </nav> */}
 
         <div
-          className="relative ml-auto"
+          className="relative ml-auto md:mr-6 lg:mr-10"
           onMouseEnter={openMenu}
           onMouseLeave={closeMenu}
         >
@@ -108,7 +108,7 @@ export default function Header() {
           </button>
 
           <div
-            className={`absolute right-0 mt-2 w-full rounded-lg shadow-lg bg-white text-[#004d21] overflow-hidden z-50
+            className={`absolute right-0 mt-2 w-full overflow-hidden z-50 rounded-xl border-1 border-[#42C2FF] text-[#2155CD] shadow-md divide-y divide-[#42C2FF]
               transform origin-top transition
               ${
                 open
@@ -120,7 +120,7 @@ export default function Header() {
             <a
               href="/signin"
               role="menuitem"
-              className="flex items-center justify-between px-3 py-2 hover:bg-amber-50"
+              className="flex items-center justify-between px-3 py-2 hover:rounded-xl hover:bg-[#42C2FF] hover:text-white"
               onClick={() => setOpen(false)}
             >
               <span>Sign-In</span>
@@ -129,7 +129,7 @@ export default function Header() {
             <a
               href="/signup"
               role="menuitem"
-              className="flex items-center justify-between px-3 py-2 hover:bg-amber-50 border-t border-gray-100"
+              className="flex items-center justify-between px-3 py-2 hover:rounded-xl hover:bg-[#42C2FF] hover:text-white"
               onClick={() => setOpen(false)}
             >
               <span>Sign-Up</span>
@@ -141,23 +141,38 @@ export default function Header() {
 
       <div
         id="mobile-nav"
-        className={`md:hidden px-4 transition-[max-height,opacity] duration-300 ease-out overflow-hidden
-          ${mobileOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"}`}
+        className={`md:hidden px-8 transition-[max-height,opacity] duration-300 ease-out overflow-hidden
+          ${mobileOpen ? "max-h-60 opacity-100 pb-4" : "max-h-0 opacity-0"}`}
       >
-        <div className="mt-2 rounded-lg bg-white text-[#004d21] shadow-md divide-y divide-gray-200">
-          <a href="/" className="block px-4 py-3">
+        <div className="rounded-xl border-1 border-[#42C2FF] text-[#2155CD] shadow-md divide-y divide-[#42C2FF] ">
+          <a
+            href="/"
+            className="block px-4 py-2 hover:rounded-xl hover:bg-[#42C2FF] hover:text-white"
+          >
             Home
           </a>
-          <a href="/" className="block px-4 py-3">
+          <a
+            href="/"
+            className="block px-4 py-2 hover:rounded-xl hover:bg-[#42C2FF] hover:text-white"
+          >
             Services
           </a>
-          <a href="/" className="block px-4 py-3">
+          <a
+            href="/"
+            className="block px-4 py-2 hover:rounded-xl hover:bg-[#42C2FF] hover:text-white"
+          >
             Visitor Guides
           </a>
-          <a href="/" className="block px-4 py-3">
+          <a
+            href="/"
+            className="block px-4 py-2 hover:rounded-xl hover:bg-[#42C2FF] hover:text-white"
+          >
             Be Healthy
           </a>
-          <a href="/" className="block px-4 py-3">
+          <a
+            href="/"
+            className="block px-4 py-2 hover:rounded-xl hover:bg-[#42C2FF] hover:text-white"
+          >
             About Us
           </a>
         </div>
