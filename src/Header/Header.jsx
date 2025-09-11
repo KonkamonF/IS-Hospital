@@ -17,24 +17,27 @@ export default function Header() {
   };
   const toggleMenu = () => setOpen((v) => !v);
 
-  const [active, setActive] = useState("home");
-  const base = "px-3 py-2 rounded-md transition";
-  const focusOnly =
-    "focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 focus:ring-offset-[#004d21]";
-  const activeRing =
-    "ring-2 ring-amber-400 ring-offset-2 ring-offset-[#004d21]";
+  const handleNav = (href) => (e) => {
+    if (e.type === "mouseenter") {
+      e.currentTarget.focus();
+    }
+    if (e.type === "click") {
+      e.preventDefault();
+      e.currentTarget.focus();
+      window.location.assign(href);
+    }
+  };
 
   return (
     <header className="relative">
-      <div className="flex items-center w-screen">
+      <div className="flex items-center w-full max-w-7xl mx-auto px-4">
         <button
           type="button"
           onClick={() => setMobileOpen((v) => !v)}
           aria-expanded={mobileOpen}
           aria-controls="mobile-nav"
-         
         >
-          <img src={LogononText} alt="Logo" className="w-[70px] " />
+          <img src={LogononText} alt="Logo" className="w-[70px]" />
         </button>
 
         <nav className="hidden md:flex items-center gap-4">
@@ -48,49 +51,20 @@ export default function Header() {
             <a
               key={l.href}
               href={l.href}
-              onMouseDown={(e) => e.preventDefault()} 
-              onClick={(e) => {
-                e.currentTarget.focus(); 
-                window.location.assign("/");
-              }}
+              onMouseEnter={handleNav(l.href)}
+              onClick={handleNav(l.href)}
               className="
-         px-3 py-2 rounded-md
-    focus:outline-none focus:ring-2 focus:ring-amber-400
-    focus:ring-offset-2 focus:ring-offset-[#004d21]
-    active:ring-2 active:ring-amber-400
-    transition
+        px-3 py-2 rounded-md
+        focus:outline-none focus:ring-2 focus:ring-amber-400
+        focus:ring-offset-2 focus:ring-offset-[#004d21]
+        active:ring-2 active:ring-amber-400
+        transition
       "
             >
               {l.label}
             </a>
           ))}
         </nav>
-
-        {/* hover ring */}
-        {/* <nav className="flex gap-3">
-          <a
-            href="#home"
-            onClick={(e) => {
-              e.preventDefault();
-              setActive("home");
-            }}
-            className={`${base} ${active === "home" ? activeRing : focusOnly}`}
-          >
-            Home
-          </a>
-          <a
-            href="#services"
-            onClick={(e) => {
-              e.preventDefault();
-              setActive("services");
-            }}
-            className={`${base} ${
-              active === "services" ? activeRing : focusOnly
-            }`}
-          >
-            Services
-          </a>
-        </nav> */}
 
         <div
           className="relative ml-auto md:mr-6 lg:mr-10"
@@ -108,19 +82,25 @@ export default function Header() {
           </button>
 
           <div
-            className={`absolute right-0 mt-2 w-full overflow-hidden z-50 rounded-xl border-1 border-[#42C2FF] text-[#2155CD] shadow-md divide-y divide-[#42C2FF]
-              transform origin-top transition
-              ${
-                open
-                  ? "opacity-100 scale-100"
-                  : "opacity-0 scale-95 pointer-events-none"
-              }`}
+            className={`absolute
+        left-1/2 -translate-x-1/2 top-[calc(100%+0.5rem)]
+        md:left-auto md:right-0 md:translate-x-0 md:top-full md:mt-2
+        min-w-[190px] w-56
+        overflow-hidden z-50 rounded-xl border border-[#42C2FF]
+        text-[#2155CD] bg-white shadow-md divide-y divide-[#42C2FF]
+        transform origin-top md:origin-top-right transition
+        ${
+          open
+            ? "opacity-100 scale-100"
+            : "opacity-0 scale-95 pointer-events-none"
+        }
+      `}
             role="menu"
           >
             <a
               href="/signin"
               role="menuitem"
-              className="flex items-center justify-between px-3 py-2 hover:rounded-xl hover:bg-[#42C2FF] hover:text-white"
+              className="flex items-center justify-between px-3 py-2 hover:bg-[#42C2FF] hover:text-white"
               onClick={() => setOpen(false)}
             >
               <span>Sign-In</span>
@@ -129,7 +109,7 @@ export default function Header() {
             <a
               href="/signup"
               role="menuitem"
-              className="flex items-center justify-between px-3 py-2 hover:rounded-xl hover:bg-[#42C2FF] hover:text-white"
+              className="flex items-center justify-between px-3 py-2 hover:bg-[#42C2FF] hover:text-white"
               onClick={() => setOpen(false)}
             >
               <span>Sign-Up</span>
