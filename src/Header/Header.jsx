@@ -27,8 +27,8 @@ function NavDropdown({ label, items }) {
         aria-haspopup="menu"
         aria-expanded={open}
         className="px-3 py-2 rounded-md hover:bg-gray-200
-                   focus:outline-none focus:ring-2 focus:ring-amber-400
-                   focus:ring-offset-2 focus:ring-offset-[#004d21] transition"
+                   focus:outline-none focus:ring-2 focus:ring-[#42C2FF]
+                   focus:ring-offset-2 focus:ring-offset-[#2155CD] transition"
       >
         {label}
       </button>
@@ -37,7 +37,7 @@ function NavDropdown({ label, items }) {
         className={`absolute right-0 top-full mt-2
           w-[150px] min-w-[150px]
           overflow-hidden z-50 rounded-xl border border-[#42C2FF]
-          shadow-md divide-y divide-[#42C2FF]
+          shadow-md divide-y divide-[#42C2FF] bg-white
           transform origin-top-right transition
           ${
             open
@@ -95,8 +95,8 @@ export default function Header() {
           <a
             href="/"
             className="px-3 py-2 rounded-md
-                       focus:outline-none focus:ring-2 focus:ring-amber-400
-                       focus:ring-offset-2 focus:ring-offset-[#004d21] transition"
+                       focus:outline-none focus:ring-2 focus:ring-[#42C2FF]
+                       focus:ring-offset-2 focus:ring-offset-[#2155CD] transition"
           >
             Home
           </a>
@@ -126,8 +126,8 @@ export default function Header() {
           <a
             href="/about"
             className="px-3 py-2 rounded-md
-                       focus:outline-none focus:ring-2 focus:ring-amber-400
-                       focus:ring-offset-2 focus:ring-offset-[#004d21] transition"
+                       focus:outline-none focus:ring-2 focus:ring-[#42C2FF]
+                       focus:ring-offset-2 focus:ring-offset-[#2155CD] transition"
           >
             About Us
           </a>
@@ -145,16 +145,16 @@ export default function Header() {
             aria-haspopup="menu"
             aria-expanded={open}
             className="inline-flex items-center justify-center w-9 h-9 rounded-full hover:bg-gray-200
-                       focus:outline-none focus:ring-2 focus:ring-amber-400"
+                       focus:outline-none focus:ring-2 focus:ring-[#cd2d33]"
           >
-            <IoPersonCircleOutline size={24} />
+            <IoPersonCircleOutline size={24} color="#cd2d33" />
           </button>
 
           <div
             className={`absolute
               left-1/2 -translate-x-3/4 top-[calc(100%+1rem)]
               md:left-auto md:right-0 md:translate-x-0 md:top-full md:mt-2
-              w-[150px]
+              w-[150px] bg-white
               overflow-hidden z-50 rounded-xl border border-[#42C2FF]
               shadow-md divide-y divide-[#42C2FF]
               transform origin-top md:origin-top-right transition
@@ -172,7 +172,7 @@ export default function Header() {
               onClick={() => setOpen(false)}
             >
               <span>Sign-In</span>
-              <MdPersonSearch />
+              <MdPersonSearch color="#cd2d33"/>
             </a>
             <a
               href="/signup"
@@ -181,7 +181,7 @@ export default function Header() {
               onClick={() => setOpen(false)}
             >
               <span>Sign-Up</span>
-              <MdPersonAddAlt1 />
+              <MdPersonAddAlt1 color="#cd2d33"/>
             </a>
           </div>
         </div>
