@@ -3,6 +3,7 @@ import LogononText from "../assets/LogononText.png";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import { MdPersonAddAlt1, MdPersonSearch } from "react-icons/md";
 import SignIn from "./SignIn";
+import SignUp from "./SignUp";
 
 function NavDropdown({ label, items }) {
   const [open, setOpen] = useState(false);
@@ -64,13 +65,20 @@ function NavDropdown({ label, items }) {
 
 export default function Header() {
   const [isSignInOpen, setIsSignInOpen] = useState(false);
-  const [open, setOpen] = useState(false); // Sign-in dropdown
-  const [mobileOpen, setMobileOpen] = useState(false); // เมนูมือถือ
+  const [isSignUpOpen, setIsSignUpOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const closeTimer = useRef(null);
   const handleClickSignIn = (e) => {
     e.preventDefault();
     setOpen(false);
     setIsSignInOpen(true);
+  };
+
+  const handleClickSignUp = (e) => {
+    e.preventDefault();
+    setOpen(false);
+    setIsSignUpOpen(true);
   };
 
   const openMenu = () => {
@@ -85,6 +93,7 @@ export default function Header() {
   return (
     <>
       {isSignInOpen && <SignIn onClose={() => setIsSignInOpen(false)} />}
+      {isSignUpOpen && <SignUp onSignUp={() => setIsSignUpOpen(false)} />}
       <header className="relative">
         <div className="flex items-center w-full max-w-7xl mx-auto px-4">
           <button
@@ -182,7 +191,7 @@ export default function Header() {
                 href="/signup"
                 role="menuitem"
                 className="flex items-center justify-between px-3 py-2 hover:bg-[#42C2FF] hover:text-white"
-                onClick={() => setOpen(false)}
+                onClick={handleClickSignUp}
               >
                 <span>Sign-Up</span>
                 <MdPersonAddAlt1 color="#cd2d33" />
