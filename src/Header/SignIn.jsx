@@ -17,23 +17,56 @@ export default function SignIn({ onClose }) {
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full max-w-md rounded-2xl bg-white text-slate-900 shadow-2xl"
+        className="relative w-full max-w-md rounded-2xl bg-white shadow-2xl"
       >
         <button
           onClick={onClose}
           aria-label="Close"
-          className="absolute -top-3 -right-3 inline-flex h-9 w-9 items-center justify-center rounded-full bg-white text-slate-600 shadow-md ring-1 ring-slate-200 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-amber-400"
+          className="absolute -top-3 -right-3 inline-flex p-2 items-center justify-center rounded-full bg-white text-slate-600 shadow-md ring-1 ring-slate-200 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-[#cd2d33]"
         >
           <IoClose size={20} />
         </button>
 
         <div className="p-6 sm:p-8">
-          <h2 className="text-2xl font-bold">Sign In</h2>
-          <p className="mt-2 text-slate-600">ใส่ฟอร์มล็อกอินของคุณที่นี่…</p>
+          <h2 className="text-2xl font-bold text-center">Sign In</h2>
+          <form action="" className="flex flex-col gap-2">
+            <label htmlFor="username">Username</label>
+            <input
+              type="text"
+              id="username"
+              placeholder="Username..."
+              className="
+    w-full px-3 py-2 rounded-lg
+    bg-white/95 text-[#2155CD] placeholder-[#2155CD]/50
+    border border-[#42C2FF]/60 shadow-sm
+    hover:border-[#a1e1ff]
+    focus:outline-none focus:ring-2 focus:ring-[#a1e1ff]
+    focus:ring-offset-2 focus:ring-offset-[#2155CD]
+    focus:border-transparent
+    transition
+  "
+            />
+            <label htmlFor="password">Password</label>
+            <input
+              type="text"
+              id="password"
+              placeholder="Password..."
+              className="
+    w-full px-3 py-2 rounded-lg
+    bg-white/95 text-[#2155CD] placeholder-[#2155CD]/50
+    border border-[#42C2FF]/60 shadow-sm
+    hover:border-[#a1e1ff]
+    focus:outline-none focus:ring-2 focus:ring-[#a1e1ff]
+    focus:ring-offset-2 focus:ring-offset-[#2155CD]
+    focus:border-transparent
+    transition
+  "
+            />
+          </form>
 
           <div className="mt-6">
             <button className="w-full rounded-lg bg-[#42C2FF] px-4 py-2 font-medium text-white hover:opacity-90">
-              Continue
+              Sign In
             </button>
           </div>
         </div>

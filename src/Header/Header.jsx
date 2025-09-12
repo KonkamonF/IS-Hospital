@@ -63,11 +63,11 @@ function NavDropdown({ label, items }) {
 }
 
 export default function Header() {
-const [isSignInOpen, setIsSignInOpen] = useState(false); 
+  const [isSignInOpen, setIsSignInOpen] = useState(false);
   const [open, setOpen] = useState(false); // Sign-in dropdown
   const [mobileOpen, setMobileOpen] = useState(false); // เมนูมือถือ
   const closeTimer = useRef(null);
-    const handleClickSignIn = (e) => {
+  const handleClickSignIn = (e) => {
     e.preventDefault();
     setOpen(false);
     setIsSignInOpen(true);
@@ -82,11 +82,9 @@ const [isSignInOpen, setIsSignInOpen] = useState(false);
   };
   const toggleMenu = () => setOpen((v) => !v);
 
-
-
   return (
     <>
-{isSignInOpen && <SignIn onClose={() => setIsSignInOpen(false)} />}
+      {isSignInOpen && <SignIn onClose={() => setIsSignInOpen(false)} />}
       <header className="relative">
         <div className="flex items-center w-full max-w-7xl mx-auto px-4">
           <button
