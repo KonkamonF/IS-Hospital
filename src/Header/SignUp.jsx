@@ -2,6 +2,21 @@ import React, { useEffect } from "react";
 import { IoClose } from "react-icons/io5";
 
 export default function SignUp({ onSignUp }) {
+  // ล็อกสกรอลล์ของหน้าเฉพาะมือถือ
+  useEffect(() => {
+    const isMobile = window.matchMedia("(max-width: 767.98px)").matches;
+    const htmlEl = document.documentElement;
+    const prevOverflow = htmlEl.style.overflowY;
+
+    if (isMobile) {
+      htmlEl.style.overflowY = "hidden";
+    }
+    return () => {
+      htmlEl.style.overflowY = prevOverflow || "";
+    };
+  }, []);
+
+  // ปิดด้วยปุ่ม Esc
   useEffect(() => {
     const onKey = (e) => e.key === "Escape" && onSignUp?.();
     window.addEventListener("keydown", onKey);
@@ -10,10 +25,7 @@ export default function SignUp({ onSignUp }) {
 
   const handleBackdropClick = () => onSignUp?.();
   const stop = (e) => e.stopPropagation();
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
+  const handleSubmit = (e) => e.preventDefault();
 
   const inputClass = `
     w-full px-3 py-2 rounded-lg
@@ -30,15 +42,22 @@ export default function SignUp({ onSignUp }) {
   return (
     <div
       onClick={handleBackdropClick}
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/40 p-4"
+      className="
+        fixed inset-0 z-[100] flex items-center justify-center bg-black/40 p-4
+        overflow-y-hidden md:overflow-y-auto   /* มือถือซ่อนแนวตั้ง, จอใหญ่เลื่อนได้ */
+      "
       role="dialog"
       aria-modal="true"
       aria-labelledby="signup-title"
     >
       <div
         onClick={stop}
-        className="relative w-full max-w-md rounded-2xl bg-white  shadow-2xl"
+        className="
+          relative w-full max-w-md rounded-2xl bg-white shadow-2xl
+          max-h-[90vh] md:max-h-[85vh] overflow-y-auto  /* โมดัลเลื่อนภายในได้ */
+        "
       >
+        {/* ปุ่มปิด */}
         <button
           onClick={onSignUp}
           aria-label="Close"
@@ -47,6 +66,7 @@ export default function SignUp({ onSignUp }) {
           <IoClose size={20} />
         </button>
 
+        {/* เนื้อหา */}
         <div className="p-6 sm:p-8">
           <h2 id="signup-title" className="text-2xl font-bold text-center">
             Sign Up
@@ -54,7 +74,7 @@ export default function SignUp({ onSignUp }) {
 
           <form
             onSubmit={handleSubmit}
-            className="grid grid-cols-1 md:grid-cols-2 gap-4"
+            className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4"
           >
             <div className="flex flex-col gap-1">
               <label htmlFor="firstName" className={labelClass}>
@@ -165,12 +185,12 @@ export default function SignUp({ onSignUp }) {
               <button
                 type="submit"
                 className="
-            w-full rounded-lg bg-[#42C2FF] px-4 py-2 font-medium text-white
-            hover:opacity-90
-            focus:outline-none focus:ring-2 focus:ring-[#a1e1ff]
-            focus:ring-offset-2 focus:ring-offset-[#2155CD]
-            transition
-          "
+                  w-full rounded-lg bg-[#42C2FF] px-4 py-2 font-medium text-white
+                  hover:opacity-90
+                  focus:outline-none focus:ring-2 focus:ring-[#a1e1ff]
+                  focus:ring-offset-2 focus:ring-offset-[#2155CD]
+                  transition
+                "
               >
                 Create Account
               </button>
