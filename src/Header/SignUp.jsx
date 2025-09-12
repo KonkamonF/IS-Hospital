@@ -44,7 +44,7 @@ export default function SignUp({ onSignUp }) {
       onClick={handleBackdropClick}
       className="
         fixed inset-0 z-[100] flex items-center justify-center bg-black/40 p-4
-        overflow-y-hidden md:overflow-y-auto   /* มือถือซ่อนแนวตั้ง, จอใหญ่เลื่อนได้ */
+        overflow-y-hidden md:overflow-y-auto  
       "
       role="dialog"
       aria-modal="true"
@@ -54,7 +54,7 @@ export default function SignUp({ onSignUp }) {
         onClick={stop}
         className="
           relative w-full max-w-md rounded-2xl bg-white shadow-2xl
-          max-h-[90vh] md:max-h-[85vh] overflow-y-auto  /* โมดัลเลื่อนภายในได้ */
+          max-h-[60vh] md:max-h-[45vh] overflow-y-auto 
         "
       >
         {/* ปุ่มปิด */}
