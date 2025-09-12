@@ -54,14 +54,14 @@ export default function SignUp({ onSignUp }) {
         onClick={stop}
         className="
           relative w-full max-w-md rounded-2xl bg-white shadow-2xl
-          max-h-[60vh] md:max-h-[45vh] overflow-y-auto 
+          max-h-[60vh] md:max-h-[45vh] overflow-y-auto overflow-visible
         "
       >
         {/* ปุ่มปิด */}
         <button
           onClick={onSignUp}
           aria-label="Close"
-          className="absolute -top-3 -right-3 inline-flex h-9 w-9 items-center justify-center rounded-full bg-white text-slate-600 shadow-md ring-1 ring-slate-200 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-[#cd2d33]"
+          className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 z-[200] inline-flex p-2 items-center justify-center rounded-full bg-white text-slate-600 shadow-md ring-1 ring-slate-200 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-[#cd2d33]"
         >
           <IoClose size={20} />
         </button>
