@@ -1,10 +1,10 @@
-import MainComponent from "./component/MainComponent";
+import Router from "./Router";
 
 function App() {
   return (
     <>
       <div className="text-[#2155CD]">
-        <MainComponent />
+        <Router />
       </div>
     </>
   );

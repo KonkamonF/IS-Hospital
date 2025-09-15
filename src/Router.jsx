@@ -1,26 +1,27 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import MainComponent from "./component/MainComponent";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Services from "./Body/Services";
 import Visitor from "./Body/Visitor";
 import Healthy from "./Body/Healthy";
+import MainBody from "./Body/MainBody";
+import MainComponent from "./component/MainComponent";
 
 const route = createBrowserRouter([
   {
     path: "/",
-    element: <MainComponent />,
+    element: <Outlet />,
     children: [
-      { path: "/", element: <MainComponent /> },
-      { path: "services", element: <Services /> },
+      { index: true, element: <MainComponent /> },
+      { path: "Services", element: <Services /> },
       { path: "Visitor", element: <Visitor /> },
-      { path: "Healthy", element: <Healthy/> },
+      { path: "Healthy", element: <Healthy /> },
     ],
   },
 ]);
 
 export default function Router() {
   return (
-    <div>
-      <RouterProvider route={route} />
-    </div>
+    <>
+      <RouterProvider router={route} />
+    </>
   );
 }

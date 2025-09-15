@@ -8,8 +8,8 @@ export default function MainComponent() {
   return (
     <>
       <Header />
-      {/* <MainBody/>  */}
       <Outlet />
+      {/* <MainBody /> */}
       <MainFooter />
     </>
   );

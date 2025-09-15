@@ -118,27 +118,27 @@ export default function Header() {
             <NavDropdown
               label="Services"
               items={[
-                { label: "1", href: "/services/1" },
-                { label: "2", href: "/services/2" },
+                { label: "1", href: "/Services/1" },
+                { label: "2", href: "/Services/2" },
               ]}
             />
             <NavDropdown
               label="Visitor Guides"
               items={[
-                { label: "1", href: "/guides/1" },
-                { label: "2", href: "/guides/2" },
+                { label: "1", href: "/Visitor/1" },
+                { label: "2", href: "/Visitor/2" },
               ]}
             />
             <NavDropdown
               label="Be Healthy"
               items={[
-                { label: "1", href: "/healthy/1" },
-                { label: "2", href: "/healthy/2" },
+                { label: "1", href: "/Healthy/1" },
+                { label: "2", href: "/Healthy/2" },
               ]}
             />
 
             <a
-              href="/about"
+              href="/"
               className="px-3 py-2 rounded-md hover:bg-gray-200
                        focus:outline-none focus:ring-2 focus:ring-[#a1e1ff]
                        focus:ring-offset-2 focus:ring-offset-[#2155CD] transition"
@@ -179,7 +179,7 @@ export default function Header() {
               role="menu"
             >
               <a
-                href="/signin"
+                href="#"
                 role="menuitem"
                 className="flex items-center justify-between px-3 py-2 hover:bg-[#42C2FF] hover:text-white"
                 onClick={handleClickSignIn}
@@ -188,7 +188,7 @@ export default function Header() {
                 <MdPersonSearch color="#cd2d33" />
               </a>
               <a
-                href="/signup"
+                href="#"
                 role="menuitem"
                 className="flex items-center justify-between px-3 py-2 hover:bg-[#42C2FF] hover:text-white"
                 onClick={handleClickSignUp}
@@ -213,25 +213,25 @@ export default function Header() {
               Home
             </a>
             <a
-              href="/services"
+              href="/Services"
               className="block px-4 py-2 hover:rounded-xl hover:bg-[#42C2FF] hover:text-white"
             >
               Services
             </a>
             <a
-              href="/guides"
+              href="/Visitor"
               className="block px-4 py-2 hover:rounded-xl hover:bg-[#42C2FF] hover:text-white"
             >
               Visitor Guides
             </a>
             <a
-              href="/healthy"
+              href="/Healthy"
               className="block px-4 py-2 hover:rounded-xl hover:bg-[#42C2FF] hover:text-white"
             >
               Be Healthy
             </a>
             <a
-              href="/about"
+              href="/"
               className="block px-4 py-2 hover:rounded-xl hover:bg-[#42C2FF] hover:text-white"
             >
               About Us
