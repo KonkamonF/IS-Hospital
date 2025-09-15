@@ -8,9 +8,9 @@ import MainComponent from "./component/MainComponent";
 const route = createBrowserRouter([
   {
     path: "/",
-    element: <Outlet />,
+    element: <MainComponent />,
     children: [
-      { index: true, element: <MainComponent /> },
+      { path: "/", element: <MainBody/> },
       { path: "Services", element: <Services /> },
       { path: "Visitor", element: <Visitor /> },
       { path: "Healthy", element: <Healthy /> },

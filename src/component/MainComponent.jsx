@@ -9,7 +9,6 @@ export default function MainComponent() {
     <>
       <Header />
       <Outlet />
-      {/* <MainBody /> */}
       <MainFooter />
     </>
   );
