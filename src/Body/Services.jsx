@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "../Header/Header";
 import h6 from "../assets/h6.png";
 import h7 from "../assets/h7.png";
 import h8 from "../assets/h8.png";
