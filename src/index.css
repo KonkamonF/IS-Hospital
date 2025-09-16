@@ -26,45 +26,45 @@
 
 /* สีธีมหลักของลูกศร/โฟกัส/ไฮไลต์ต่าง ๆ */
 :root {
-  --swiper-theme-color: #f97316;
+  --swiper-theme-color: #f96a05;
 } /* orange-500 */
 
 /* Pagination แบบ progressbar */
 .swiper-pagination-progressbar {
   /* ราง */
-  background: rgba(249, 115, 22, 0.2); /* ส้มจาง ๆ */
+  background: rgba(255, 106, 0, 0.378); /* ส้มจาง ๆ */
   height: 4px; /* ปรับความหนา */
   border-radius: 9999px;
 }
 .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
   /* แถบที่วิ่ง */
-  background: #f97316;
+  background: #f96a05;
   border-radius: 9999px;
 }
 
 /* Pagination แบบ bullets */
 .swiper-pagination-bullet {
-  background: #e5e7eb; /* สีจุดปกติ (gray-200) */
+  background: #c6c7c9; /* สีจุดปกติ (gray-200) */
   opacity: 1; /* ให้ทึบ */
 }
 .swiper-pagination-bullet-active {
-  background: #f97316; /* จุดที่ active เป็นส้ม */
+  background: #f96a05; /* จุดที่ active เป็นส้ม */
 }
 
 /* Scrollbar (ถ้าเปิดใช้) */
 .swiper-scrollbar {
-  background: rgba(249, 115, 22, 0.15);
+  background: rgba(255, 106, 0, 0.378);
 }
 .swiper-scrollbar-drag {
-  background: #f97316;
+  background: #fc7d23;
 }
 
 /* ลูกศร next/prev */
 .swiper-button-next,
 .swiper-button-prev {
-  color: #f97316;
+  color: #ff6e06;
 } /* สีส้ม */
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
-  color: #ea580c;
+  color: #c34b0b;
 } /* ส้มเข้มขึ้น (orange-600) */
