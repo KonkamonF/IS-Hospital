@@ -94,7 +94,7 @@ export default function Header() {
     <>
       {isSignInOpen && <SignIn onClose={() => setIsSignInOpen(false)} />}
       {isSignUpOpen && <SignUp onSignUp={() => setIsSignUpOpen(false)} />}
-      <header className="relative">
+      <header className="relative border-b-4 rounded-b-4xl">
         <div className="flex items-center w-full max-w-7xl mx-auto px-4">
           <button
             type="button"
