@@ -213,19 +213,19 @@ export default function Header() {
               Home
             </a>
             <a
-              href="Services"
+              href="services"
               className="block px-4 py-2 hover:rounded-xl hover:bg-[#42C2FF] hover:text-white"
             >
               Services
             </a>
             <a
-              href="Visitor"
+              href="visitor"
               className="block px-4 py-2 hover:rounded-xl hover:bg-[#42C2FF] hover:text-white"
             >
               Visitor Guides
             </a>
             <a
-              href="Healthy"
+              href="healthy"
               className="block px-4 py-2 hover:rounded-xl hover:bg-[#42C2FF] hover:text-white"
             >
               Be Healthy
