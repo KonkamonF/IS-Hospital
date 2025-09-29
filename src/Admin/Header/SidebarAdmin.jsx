@@ -1,7 +1,45 @@
-import React from 'react'
+import React from "react";
+import { FiHome, FiUsers, FiSettings } from "react-icons/fi";
 
-export default function SidebarAdmin() {
+export default function SidebarAdmin({ isOpen, setIsOpen }) {
   return (
-    <div>SidebarAdmin</div>
-  )
+    <div
+      className={`
+        fixed md:static top-0 left-0 h-full w-64 bg-white shadow-lg
+        transform ${isOpen ? "translate-x-0" : "-translate-x-full"}
+        md:translate-x-0 transition-transform duration-300 z-50
+      `}
+    >
+      <div className="p-6 border-b flex justify-between items-center md:block">
+        <h2 className="text-xl font-semibold text-[#2155CD]">Admin Panel</h2>
+        {/* ปุ่มปิด (แสดงเฉพาะมือถือ) */}
+        <button
+          onClick={() => setIsOpen(false)}
+          className="md:hidden text-gray-600 hover:text-[#2155CD]"
+        >
+          ✖
+        </button>
+      </div>
+      <nav className="mt-4 space-y-2">
+        <a
+          href="#"
+          className="flex items-center gap-3 px-4 py-2 text-gray-700 hover:bg-[#2155CD]/10 hover:text-[#2155CD] rounded-lg transition"
+        >
+          <FiHome /> Dashboard
+        </a>
+        <a
+          href="#"
+          className="flex items-center gap-3 px-4 py-2 text-gray-700 hover:bg-[#2155CD]/10 hover:text-[#2155CD] rounded-lg transition"
+        >
+          <FiUsers /> Staff
+        </a>
+        <a
+          href="#"
+          className="flex items-center gap-3 px-4 py-2 text-gray-700 hover:bg-[#2155CD]/10 hover:text-[#2155CD] rounded-lg transition"
+        >
+          <FiSettings /> Settings
+        </a>
+      </nav>
+    </div>
+  );
 }
