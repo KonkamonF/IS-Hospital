@@ -33,7 +33,7 @@ function NavDropdown({ label, items }) {
       >
         {label}
       </button>
-<p>test</p>
+
       <div
         className={`absolute right-0 top-full mt-2
           w-[150px] min-w-[150px]
