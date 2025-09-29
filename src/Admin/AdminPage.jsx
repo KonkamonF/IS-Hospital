@@ -9,8 +9,8 @@ export default function AdminPage() {
     <>
     <HeaderAdmin/>
     <SidebarAdmin/>
-    <BodyAdmin/>
-    {/* <Outlet/> */}
+    {/* <BodyAdmin/> */}
+    <Outlet/>
     </>
   )
 }

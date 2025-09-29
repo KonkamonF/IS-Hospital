@@ -6,6 +6,8 @@ import MainBody from "../src/User/Body/MainBody";
 import MainComponent from "../src/component/MainComponent";
 import AdminPage from "./Admin/AdminPage";
 import BodyAdmin from "./Admin/Body/BodyAdmin";
+import BodyDoctor from "./Admin/Body/BodyDoctor";
+import BodyNurse from "./Admin/Body/BodyNurse";
 
 const route = createBrowserRouter([
   {
@@ -22,8 +24,9 @@ const route = createBrowserRouter([
     path: "/admin",
     element: <AdminPage />,
     children: [
-      { index: true, element: <AdminPage /> },
-      { path: "doctor", element: <BodyAdmin /> },
+      { index: true, element: <BodyAdmin/> },
+      { path: "doctor", element: <BodyDoctor/> },
+      { path: "nurse", element: <BodyNurse/> },
     ],
   },
 ]);
