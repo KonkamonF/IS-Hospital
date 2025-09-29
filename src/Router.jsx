@@ -1,9 +1,9 @@
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
-import Services from "./Body/Services";
-import Visitor from "./Body/Visitor";
-import Healthy from "./Body/Healthy";
-import MainBody from "./Body/MainBody";
-import MainComponent from "./component/MainComponent";
+import Services from "../src/User/Body/Services";
+import Visitor from "../src/User/Body/Visitor";
+import Healthy from "../src/User/Body/Healthy";
+import MainBody from "../src/User/Body/MainBody";
+import MainComponent from "../src/component/MainComponent";
 
 const route = createBrowserRouter([
   {

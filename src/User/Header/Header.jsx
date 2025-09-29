@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import LogononText from "../assets/LogononText.png";
+import LogononText from "../../assets/LogononText.png";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import { MdPersonAddAlt1, MdPersonSearch } from "react-icons/md";
 import SignIn from "./SignIn";

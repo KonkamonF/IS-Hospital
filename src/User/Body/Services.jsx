@@ -1,16 +1,16 @@
 import React from "react";
-import h6 from "../assets/h6.png";
-import h7 from "../assets/h7.png";
-import h8 from "../assets/h8.png";
-import h12 from "../assets/h12.png";
-import h10 from "../assets/h10.png";
-import h11 from "../assets/h11.png";
+import h6 from "../../assets/h6.png";
+import h7 from "../../assets/h7.png";
+import h8 from "../../assets/h8.png";
+import h12 from "../../assets/h12.png";
+import h10 from "../../assets/h10.png";
+import h11 from "../../assets/h11.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import "../index.css";
+import "../../../src/index.css";
 
 export default function Services() {
   return (
