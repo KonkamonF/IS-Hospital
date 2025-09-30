@@ -89,15 +89,15 @@ export default function BodyAdmin() {
 
   // ฟังก์ชันจัดรูปแบบตัวเลขให้เป็นสกุลเงินบาท
   const formatCurrency = (amount) => {
-    return new Intl.NumberFormat('th-TH', { 
-      style: 'currency', 
-      currency: 'THB',
-      minimumFractionDigits: 0, 
+    return new Intl.NumberFormat("th-TH", {
+      style: "currency",
+      currency: "THB",
+      minimumFractionDigits: 0,
     }).format(amount);
   };
-  
+
   // กรองข้อมูล: แสดงเฉพาะผู้ป่วยใน (IPD)
-  const ipdPatients = patients.filter(p => p.admitStatus === "Admit");
+  const ipdPatients = patients.filter((p) => p.admitStatus === "Admit");
 
   return (
     <div className="p-6 bg-gray-50 min-h-screen">
@@ -120,7 +120,9 @@ export default function BodyAdmin() {
           </thead>
           <tbody>
             {ipdPatients.map((p) => {
-              const waitingTime = p.sentTime ? new Date() - new Date(p.sentTime) : 0;
+              const waitingTime = p.sentTime
+                ? new Date() - new Date(p.sentTime)
+                : 0;
               const isOver1h = waitingTime > 60 * 60 * 1000; // เกิน 1 ชม.
 
               return (
@@ -129,7 +131,7 @@ export default function BodyAdmin() {
                   className="border-b bg-white hover:bg-indigo-50 transition"
                 >
                   <td className="p-3 font-medium text-gray-900">{p.name}</td>
-                  
+
                   {/* แสดงเลขห้อง */}
                   <td className="p-3 font-bold text-indigo-600">
                     {p.roomNumber}
@@ -139,7 +141,7 @@ export default function BodyAdmin() {
                   <td className="p-3 text-sm text-gray-600">
                     {p.insuranceProvider}
                   </td>
-                  
+
                   <td
                     className={`p-3 font-semibold ${
                       p.paymentStatus === "ชำระแล้ว"
@@ -179,12 +181,13 @@ export default function BodyAdmin() {
           </tbody>
         </table>
       </div>
-      
+
       {/* Footer / Summary */}
       <div className="mt-6 p-4 bg-white border border-gray-200 rounded-lg shadow-md">
-          <p className="text-lg font-semibold text-[#2155CD]">
-              จำนวนผู้ป่วยใน (IPD): <span className="text-3xl">{ipdPatients.length}</span> ราย
-          </p>
+        <p className="text-lg font-semibold text-[#2155CD]">
+          จำนวนผู้ป่วยใน (IPD):{" "}
+          <span className="text-3xl">{ipdPatients.length}</span> ราย
+        </p>
       </div>
     </div>
   );

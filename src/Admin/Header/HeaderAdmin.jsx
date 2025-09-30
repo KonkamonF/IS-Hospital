@@ -13,7 +13,7 @@ export default function HeaderAdmin() {
       {/* Header */}
       <div className="flex items-center justify-between p-4 bg-white shadow">
         {/* ปุ่มเปิดเมนู (เฉพาะมือถือ) */}
-        <div className="flex items-center gap-2 md:hidden">
+        <div className="flex items-center gap-2 ">
           <button onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
           </button>

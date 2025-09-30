@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
 export default function Healthy() {
-  return (
-    <div>Healthy</div>
-  )
+  return <div>Healthy</div>;
 }

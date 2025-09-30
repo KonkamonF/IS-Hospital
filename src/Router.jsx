@@ -24,9 +24,9 @@ const route = createBrowserRouter([
     path: "/admin",
     element: <AdminPage />,
     children: [
-      { index: true, element: <BodyAdmin/> },
-      { path: "doctor", element: <BodyDoctor/> },
-      { path: "nurse", element: <BodyNurse/> },
+      { index: true, element: <BodyAdmin /> },
+      { path: "doctor", element: <BodyDoctor /> },
+      { path: "nurse", element: <BodyNurse /> },
     ],
   },
 ]);
