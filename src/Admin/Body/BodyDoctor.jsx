@@ -23,15 +23,44 @@ export default function BodyDoctor() {
 
         {/* โรค */}
         <div>
-          <label className="block text-sm font-medium text-gray-700">
+          <label
+            htmlFor="disease-select"
+            className="block text-sm font-medium text-gray-700"
+          >
             โรค
           </label>
-          <input
-            type="text"
-            placeholder="กรอกชื่อโรค..."
-            className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2
+          <select
+            id="disease-select"
+           className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2
                        focus:outline-none focus:ring-2 focus:ring-[#42C2FF]"
-          />
+          >
+     
+            <option value="" disabled selected>
+              เลือกชื่อโรค...
+            </option>
+
+            {/* Group 1: Internal Medicine */}
+            <optgroup label="Internal Medicine">
+              <option value="pneumonia">
+                Pneumonia – ไข้ หอบ ใช้ IV antibiotics
+              </option>
+            </optgroup>
+
+            {/* Group 2: Cardiology */}
+            <optgroup label="Cardiology">
+              <option value="arrhythmia">
+                Arrhythmia – AF with RVR, VT, VF → ต้อง Monitor
+              </option>
+            </optgroup>
+
+            {/* Group 3: Gastroenterology */}
+            <optgroup label="gastroenterology">
+              <option value="upper-gi-bleeding">
+                Upper GI Bleeding – แผลในกระเพาะ, เส้นเลือดขอดแตก
+              </option>
+            </optgroup>
+          </select>
+     
         </div>
 
         {/* แผนก */}
@@ -47,7 +76,6 @@ export default function BodyDoctor() {
             <option>อายุรกรรม</option>
             <option>ระบบทางเดินอาหาร</option>
             <option>โรคหัวใจและทรวงอก</option>
-
           </select>
         </div>
 
@@ -93,7 +121,7 @@ export default function BodyDoctor() {
               <input
                 type="number"
                 min="1"
-                placeholder="เช่น 3"
+                placeholder="กรุณาใส่ตัวเลข"
                 className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2
                            focus:outline-none focus:ring-2 focus:ring-[#42C2FF]"
               />
