@@ -62,10 +62,9 @@ const SettingsIcon = (props) => (
 export default function SidebarAdmin({ isOpen, setIsOpen }) {
   // ฟังก์ชันสำหรับกำหนด class ของ Link ที่ถูกเลือกในปัจจุบัน (จำลอง)
   // ในการใช้งานจริงควรใช้ useLocation ของ react-router-dom
-  const activeLinkClass = (path) =>
-    window.location.pathname === path
-      ? "flex items-center gap-3 px-4 py-2 text-white bg-[#2155CD] rounded-lg transition font-semibold"
-      : "flex items-center gap-3 px-4 py-2 text-gray-700 hover:bg-[#2155CD]/10 hover:text-[#2155CD] rounded-lg transition";
+  const activeLinkClass = isOpen
+    ? "flex items-center gap-3 px-4 py-2 text-white bg-[#2155CD] rounded-lg transition font-semibold"
+    : "flex items-center gap-3 px-4 py-2 text-gray-700 hover:bg-[#2155CD]/10 hover:text-[#2155CD] rounded-lg transition";
 
   return (
     // ปรับปรุง Responsive:
@@ -95,16 +94,15 @@ export default function SidebarAdmin({ isOpen, setIsOpen }) {
       <nav className="mt-4 space-y-1">
         <Link
           to={"/admin/doctor"}
+          className={activeLinkClass}
           // ใช้ activeLinkClass เพื่อแสดงสถานะ Active Link
         >
           <HomeIcon /> Doctor
         </Link>
-        <Link to={"/admin/nurse"}>
+        <Link to={"/admin/nurse"} className={activeLinkClass}>
           <UsersIcon /> Nurse
         </Link>
-        <Link
-          to={"/admin/insurance"}
-        >
+        <Link to={"/admin/insurance"} className={activeLinkClass}>
           <SettingsIcon /> Insurance
         </Link>
       </nav>
