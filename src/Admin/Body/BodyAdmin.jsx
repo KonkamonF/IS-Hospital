@@ -1,4 +1,9 @@
 import React, { useEffect, useState } from "react";
+import i3 from "../../assets/3.png";
+import i4 from "../../assets/4.png";
+import i5 from "../../assets/5.png";
+import i6 from "../../assets/6.png";
+import i7 from "../../assets/7.png";
 
 export default function BodyAdmin() {
   // Mock data ผู้ป่วย (เพิ่ม property 'cost', 'roomNumber', และ 'insuranceProvider')
@@ -13,6 +18,7 @@ export default function BodyAdmin() {
       cost: 15500,
       roomNumber: "301", // NEW: เลขห้อง
       insuranceProvider: "AIA", // NEW: บริษัทประกัน
+      i: i3,
     },
     {
       id: 2,
@@ -24,6 +30,7 @@ export default function BodyAdmin() {
       cost: 4200,
       roomNumber: "-",
       insuranceProvider: "Allianz Ayudhya",
+      i: i4,
     },
     {
       id: 3,
@@ -35,6 +42,7 @@ export default function BodyAdmin() {
       cost: 87500,
       roomNumber: "410",
       insuranceProvider: "Muang Thai Life",
+      i: i5,
     },
     {
       id: 4,
@@ -46,6 +54,7 @@ export default function BodyAdmin() {
       cost: 45000,
       roomNumber: "205",
       insuranceProvider: "Krungthai-AXA",
+      i: i6,
     },
     {
       id: 5,
@@ -57,6 +66,7 @@ export default function BodyAdmin() {
       cost: 21000,
       roomNumber: "502",
       insuranceProvider: "Bangkok Health Insurance (TPA)",
+      i: i7,
     },
     {
       id: 6,
@@ -68,6 +78,7 @@ export default function BodyAdmin() {
       cost: 32000,
       roomNumber: "308",
       insuranceProvider: "Tokio Marine",
+      i: i4,
     },
   ]);
 
@@ -109,6 +120,7 @@ export default function BodyAdmin() {
         <table className="w-full border-collapse border">
           <thead className="bg-[#2155CD] text-white sticky top-0">
             <tr>
+              <th className="p-3 text-left">รูป</th>
               <th className="p-3 text-left">ชื่อผู้ป่วย</th>
               <th className="p-3 text-left">เลขห้อง</th> {/* NEW */}
               <th className="p-3 text-left">บริษัทประกัน</th> {/* NEW */}
@@ -130,6 +142,10 @@ export default function BodyAdmin() {
                   key={p.id}
                   className="border-b bg-white hover:bg-indigo-50 transition"
                 >
+                  <td>
+                    {" "}
+                    <img src={p.i} alt="" className="w-[150px]" />
+                  </td>
                   <td className="p-3 font-medium text-gray-900">{p.name}</td>
 
                   {/* แสดงเลขห้อง */}

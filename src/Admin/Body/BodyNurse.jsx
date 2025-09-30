@@ -1,4 +1,9 @@
 import React, { useState } from "react";
+import i3 from "../../assets/3.png";
+import i4 from "../../assets/4.png";
+import i5 from "../../assets/5.png";
+import i6 from "../../assets/6.png";
+import i7 from "../../assets/7.png";
 
 export default function BodyNurse() {
   // Mock data (จำลองข้อมูลจาก API)
@@ -12,6 +17,7 @@ export default function BodyNurse() {
       status: "รอ Admit",
       room: "Ward A - ห้อง 302",
       treatment: "เตรียมผ่าตัดไส้ติ่ง",
+      i: i3,
     },
     {
       id: 2,
@@ -22,6 +28,7 @@ export default function BodyNurse() {
       status: "รับยากลับบ้าน",
       room: "OPD Zone B",
       treatment: "ให้ยาลดอาการอักเสบและเกลือแร่",
+      i: i4,
     },
     {
       id: 3,
@@ -32,6 +39,7 @@ export default function BodyNurse() {
       status: "กำลังรักษาในหอผู้ป่วย",
       room: "Ward C - ห้อง 210",
       treatment: "ให้ยาปฏิชีวนะและออกซิเจน",
+      i: i5,
     },
   ]);
 
@@ -45,6 +53,8 @@ export default function BodyNurse() {
             key={patient.id}
             className="border rounded-2xl shadow-md p-4 bg-white hover:shadow-lg transition"
           >
+            <img src={patient.i} alt="" className="w-[200px] rounded-full" />
+
             <h3 className="text-lg font-semibold text-blue-700">
               {patient.name} ({patient.age} ปี)
             </h3>

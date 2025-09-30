@@ -1,4 +1,9 @@
 import React, { useEffect, useState } from "react";
+import i3 from "../../assets/3.png";
+import i4 from "../../assets/4.png";
+import i5 from "../../assets/5.png";
+import i6 from "../../assets/6.png";
+import i7 from "../../assets/7.png";
 
 // Mock Data ผู้ป่วยใน (Enhanced with clinical details)
 const initialPatients = [
@@ -16,6 +21,7 @@ const initialPatients = [
     diagnosis: "Pneumonia",
     treatmentPlan: "IV Ceftriaxone 1g BID for 7 days.",
     stayDays: 7,
+    i: i3,
   },
   {
     id: 3,
@@ -31,6 +37,7 @@ const initialPatients = [
     diagnosis: "Arrhythmia - AF with RVR",
     treatmentPlan: "Rate control with Diltiazem drip. Monitor EKG.",
     stayDays: 3,
+    i: i5,
   },
   {
     id: 5,
@@ -46,6 +53,7 @@ const initialPatients = [
     diagnosis: "",
     treatmentPlan: "",
     stayDays: 0,
+    i: i7,
   },
   {
     id: 7,
@@ -61,6 +69,7 @@ const initialPatients = [
     diagnosis: "",
     treatmentPlan: "",
     stayDays: 0,
+    i: i4,
   },
 ];
 
@@ -135,6 +144,7 @@ export default function BodyDoctor() {
                             : "bg-gray-100 hover:bg-gray-200"
                         }`}
           >
+            <img src={p.i} alt="" className="w-[100px] rounded-full" />
             <span className="font-medium">{p.name}</span>
             <span
               className={`text-xs ${
@@ -152,6 +162,7 @@ export default function BodyDoctor() {
   // --- Component ย่อย: กล่องข้อมูลสุขภาพผู้ป่วย ---
   const PatientInfoBox = ({ patient }) => (
     <div className="bg-blue-50 border-l-4 border-[#2155CD] p-5 rounded-xl shadow-inner mb-6">
+      <img src={patient.i} alt="" className="w-[200px] rounded-full" />
       <h3 className="text-2xl font-bold text-[#2155CD] mb-3 break-words">
         {patient.name}
         {/* ปรับให้เลขห้องอยู่บรรทัดใหม่บนมือถือและอยู่บรรทัดเดียวกับชื่อบนจอใหญ่ */}
