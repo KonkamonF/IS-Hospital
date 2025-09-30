@@ -157,7 +157,7 @@ export default function Header() {
               type="button"
               // onClick={toggleMenu}
               aria-haspopup="menu"
-              aria-expanded={open}
+              // aria-expanded={open}
               className="inline-flex items-center justify-center w-9 h-9 rounded-full hover:bg-gray-200
                        focus:outline-none focus:ring-2 focus:ring-[#cd2d33]"
             >
