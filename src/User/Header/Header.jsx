@@ -4,6 +4,7 @@ import { IoPersonCircleOutline } from "react-icons/io5";
 import { MdPersonAddAlt1, MdPersonSearch } from "react-icons/md";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
+import { Link } from "react-router-dom";
 
 function NavDropdown({ label, items }) {
   const [open, setOpen] = useState(false);
@@ -196,6 +197,12 @@ export default function Header() {
                 <span>Sign-Up</span>
                 <MdPersonAddAlt1 color="#cd2d33" />
               </a>
+              <Link
+                to={"/admin"}
+                className="flex items-center justify-between px-3 py-2 hover:bg-[#42C2FF] hover:text-white"
+              >
+                Admin
+              </Link>
             </div>
           </div>
         </div>
