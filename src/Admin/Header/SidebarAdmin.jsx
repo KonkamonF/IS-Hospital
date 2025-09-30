@@ -62,9 +62,8 @@ const SettingsIcon = (props) => (
 export default function SidebarAdmin({ isOpen, setIsOpen }) {
   // ฟังก์ชันสำหรับกำหนด class ของ Link ที่ถูกเลือกในปัจจุบัน (จำลอง)
   // ในการใช้งานจริงควรใช้ useLocation ของ react-router-dom
-  const activeLinkClass = isOpen
-    ? "flex items-center gap-3 px-4 py-2 text-white bg-[#2155CD] rounded-lg transition font-semibold"
-    : "flex items-center gap-3 px-4 py-2 text-gray-700 hover:bg-[#2155CD]/10 hover:text-[#2155CD] rounded-lg transition";
+  const activeLinkClass =
+    "flex items-center gap-3 px-4 py-2 text-gray-700 hover:bg-[#2155CD]/10 hover:text-[#2155CD] rounded-lg transition";
 
   return (
     // ปรับปรุง Responsive:
@@ -76,12 +75,14 @@ export default function SidebarAdmin({ isOpen, setIsOpen }) {
         ${isOpen ? "translate-x-0" : "-translate-x-full"}
       `}
     >
-      {/* Overlay สำหรับมือถือ เมื่อเปิด Sidebar ควรมี Overlay มืดๆ เพื่อกันการคลิกเนื้อหาด้านหลัง (ต้องเพิ่มใน Parent Component) */}
-
       <div className="p-6 border-b flex justify-between items-center">
-        <h2 className="text-xl font-semibold text-[#2155CD] tracking-wider">
+        <Link
+          to={"/admin"}
+          onClick={() => setIsOpen(false)}
+          className="text-xl font-semibold text-[#2155CD] tracking-wider"
+        >
           Admin Panel
-        </h2>
+        </Link>
         {/* ปุ่มปิด: ใช้สำหรับยุบ Sidebar ทั้งบน Mobile และ Desktop */}
         <button
           onClick={() => setIsOpen(false)}
@@ -94,15 +95,24 @@ export default function SidebarAdmin({ isOpen, setIsOpen }) {
       <nav className="mt-4 space-y-1">
         <Link
           to={"/admin/doctor"}
+          onClick={() => setIsOpen(false)}
           className={activeLinkClass}
           // ใช้ activeLinkClass เพื่อแสดงสถานะ Active Link
         >
           <HomeIcon /> Doctor
         </Link>
-        <Link to={"/admin/nurse"} className={activeLinkClass}>
+        <Link
+          to={"/admin/nurse"}
+          onClick={() => setIsOpen(false)}
+          className={activeLinkClass}
+        >
           <UsersIcon /> Nurse
         </Link>
-        <Link to={"/admin/insurance"} className={activeLinkClass}>
+        <Link
+          to={"/admin/insurance"}
+          onClick={() => setIsOpen(false)}
+          className={activeLinkClass}
+        >
           <SettingsIcon /> Insurance
         </Link>
       </nav>
