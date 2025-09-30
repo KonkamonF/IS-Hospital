@@ -138,14 +138,14 @@ export default function Header() {
               ]}
             />
 
-            <a
-              href="/"
+            <Link to={'/'}
+              
               className="px-3 py-2 rounded-md hover:bg-gray-200
                        focus:outline-none focus:ring-2 focus:ring-[#a1e1ff]
                        focus:ring-offset-2 focus:ring-offset-[#2155CD] transition"
             >
               About Us
-            </a>
+            </Link>
           </nav>
 
           <div
@@ -179,24 +179,23 @@ export default function Header() {
               }`}
               role="menu"
             >
-              <a
-                href="#"
+              <Link to={'#'}
+               
                 role="menuitem"
                 className="flex items-center justify-between px-3 py-2 hover:bg-[#42C2FF] hover:text-white"
                 onClick={handleClickSignIn}
               >
                 <span>Sign-In</span>
                 <MdPersonSearch color="#cd2d33" />
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link to={'#'}
                 role="menuitem"
                 className="flex items-center justify-between px-3 py-2 hover:bg-[#42C2FF] hover:text-white"
                 onClick={handleClickSignUp}
               >
                 <span>Sign-Up</span>
                 <MdPersonAddAlt1 color="#cd2d33" />
-              </a>
+              </Link>
               <Link
                 to={"/admin"}
                 className="flex items-center justify-between px-3 py-2 hover:bg-[#42C2FF] hover:text-white"
@@ -213,36 +212,35 @@ export default function Header() {
           ${mobileOpen ? "max-h-60 opacity-100 pb-4" : "max-h-0 opacity-0"}`}
         >
           <div className="rounded-xl border-1 border-[#42C2FF] shadow-md divide-y divide-[#42C2FF]">
-            <a
-              href="/"
+            <Link
+              to={"/"}
               className="block px-4 py-2 hover:rounded-xl hover:bg-[#42C2FF] hover:text-white"
             >
               Home
-            </a>
-            <a
-              href="services"
+            </Link>
+            <Link
+              to={"/services"}
               className="block px-4 py-2 hover:rounded-xl hover:bg-[#42C2FF] hover:text-white"
             >
               Services
-            </a>
-            <a
-              href="visitor"
+            </Link>
+            <Link
+              to={"/visitor"}
               className="block px-4 py-2 hover:rounded-xl hover:bg-[#42C2FF] hover:text-white"
             >
               Visitor Guides
-            </a>
-            <a
-              href="healthy"
+            </Link>
+            <Link
+              to={"/healthy"}
               className="block px-4 py-2 hover:rounded-xl hover:bg-[#42C2FF] hover:text-white"
             >
               Be Healthy
-            </a>
-            <a
-              href="/"
+            </Link>
+            <Link to={"/"}
               className="block px-4 py-2 hover:rounded-xl hover:bg-[#42C2FF] hover:text-white"
             >
               About Us
-            </a>
+            </Link>
           </div>
         </div>
       </header>
