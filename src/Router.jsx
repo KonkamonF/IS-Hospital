@@ -8,6 +8,7 @@ import AdminPage from "./Admin/AdminPage";
 import BodyAdmin from "./Admin/Body/BodyAdmin";
 import BodyDoctor from "./Admin/Body/BodyDoctor";
 import BodyNurse from "./Admin/Body/BodyNurse";
+import Insurance from "./Admin/Insurance/Insurance";
 
 const route = createBrowserRouter([
   {
@@ -27,6 +28,7 @@ const route = createBrowserRouter([
       { index: true, element: <BodyAdmin /> },
       { path: "doctor", element: <BodyDoctor /> },
       { path: "nurse", element: <BodyNurse /> },
+      { path: "insurance", element: <Insurance /> },
     ],
   },
 ]);

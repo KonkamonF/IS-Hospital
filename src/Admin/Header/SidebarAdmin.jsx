@@ -108,12 +108,12 @@ export default function SidebarAdmin({ isOpen, setIsOpen }) {
         <Link to={"/admin/nurse"} className={activeLinkClass("/admin/nurse")}>
           <UsersIcon /> Nurse
         </Link>
-        <a
-          href="#"
-          className="flex items-center gap-3 px-4 py-2 text-gray-700 hover:bg-[#2155CD]/10 hover:text-[#2155CD] rounded-lg transition"
+        <Link
+          to={"/admin/insurance"}
+          className={activeLinkClass("/admin/insurance")}
         >
-          <SettingsIcon /> Settings
-        </a>
+          <SettingsIcon /> Insurance
+        </Link>
       </nav>
       {/* Footer */}
       <div className="absolute bottom-0 left-0 w-full p-4 border-t text-xs text-gray-400">
