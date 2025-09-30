@@ -1,10 +1,5 @@
 import React from "react";
-// ต้องติดตั้งและนำเข้า react-router สำหรับการทำงานของ Link จริง
-const Link = ({ to, children, className }) => (
-  <a href={to} className={className}>
-    {children}
-  </a>
-);
+import { Link } from "react-router-dom";
 
 // กำหนด Inline SVG Icons เพื่อหลีกเลี่ยงข้อผิดพลาดในการ Resolve Module
 const HomeIcon = (props) => (
