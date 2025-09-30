@@ -96,16 +96,14 @@ export default function SidebarAdmin({ isOpen, setIsOpen }) {
         <Link
           to={"/admin/doctor"}
           // ใช้ activeLinkClass เพื่อแสดงสถานะ Active Link
-          className={activeLinkClass("/admin/doctor")}
         >
           <HomeIcon /> Doctor
         </Link>
-        <Link to={"/admin/nurse"} className={activeLinkClass("/admin/nurse")}>
+        <Link to={"/admin/nurse"}>
           <UsersIcon /> Nurse
         </Link>
         <Link
           to={"/admin/insurance"}
-          className={activeLinkClass("/admin/insurance")}
         >
           <SettingsIcon /> Insurance
         </Link>
