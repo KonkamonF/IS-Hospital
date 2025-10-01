@@ -9,6 +9,7 @@ import BodyAdmin from "./Admin/Body/BodyAdmin";
 import BodyDoctor from "./Admin/Body/BodyDoctor";
 import BodyNurse from "./Admin/Body/BodyNurse";
 import Insurance from "./Admin/Insurance/Insurance";
+import Patient from "./User/Body/Patient";
 
 const route = createBrowserRouter([
   {
@@ -19,6 +20,7 @@ const route = createBrowserRouter([
       { path: "services", element: <Services /> },
       { path: "visitor", element: <Visitor /> },
       { path: "healthy", element: <Healthy /> },
+      { path: "patient", element: <Patient /> },
     ],
   },
   {

@@ -138,13 +138,13 @@ export default function Header() {
               ]}
             />
 
-            <Link to={'/'}
-              
+            <Link
+              to={"patient"}
               className="px-3 py-2 rounded-md hover:bg-gray-200
                        focus:outline-none focus:ring-2 focus:ring-[#a1e1ff]
                        focus:ring-offset-2 focus:ring-offset-[#2155CD] transition"
             >
-              About Us
+              Patient
             </Link>
           </nav>
 
@@ -179,8 +179,8 @@ export default function Header() {
               }`}
               role="menu"
             >
-              <Link to={'#'}
-               
+              <Link
+                to={"#"}
                 role="menuitem"
                 className="flex items-center justify-between px-3 py-2 hover:bg-[#42C2FF] hover:text-white"
                 onClick={handleClickSignIn}
@@ -188,7 +188,8 @@ export default function Header() {
                 <span>Sign-In</span>
                 <MdPersonSearch color="#cd2d33" />
               </Link>
-              <Link to={'#'}
+              <Link
+                to={"#"}
                 role="menuitem"
                 className="flex items-center justify-between px-3 py-2 hover:bg-[#42C2FF] hover:text-white"
                 onClick={handleClickSignUp}
@@ -236,10 +237,11 @@ export default function Header() {
             >
               Be Healthy
             </Link>
-            <Link to={"/"}
+            <Link
+              to={"patient"}
               className="block px-4 py-2 hover:rounded-xl hover:bg-[#42C2FF] hover:text-white"
             >
-              About Us
+              Patient
             </Link>
           </div>
         </div>
