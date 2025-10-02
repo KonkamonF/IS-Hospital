@@ -77,6 +77,7 @@ export default function SidebarAdmin({ isOpen, setIsOpen }) {
     >
       <div className="p-6 border-b flex justify-between items-center">
         {/* ปุ่มปิด: ใช้สำหรับยุบ Sidebar ทั้งบน Mobile และ Desktop */}
+        <h1>Administration</h1>
         <button
           onClick={() => setIsOpen(false)}
           className="text-gray-600 hover:text-[#2155CD] text-2xl p-1 rounded-full hover:bg-gray-100 transition"
@@ -115,10 +116,17 @@ export default function SidebarAdmin({ isOpen, setIsOpen }) {
         >
           <SettingsIcon /> Insurance
         </Link>
+        <Link
+          to={"/patient"}
+          onClick={() => setIsOpen(false)}
+          className={activeLinkClass}
+        >
+          Patient
+        </Link>
       </nav>
       {/* Footer */}
       <div className="absolute bottom-0 left-0 w-full p-4 border-t text-xs text-gray-400">
-        Dashboard v1.0
+        Dashboard v5.2
       </div>
     </div>
   );

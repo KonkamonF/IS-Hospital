@@ -443,8 +443,8 @@ export default function PatientDashboard() {
         <button
           onClick={openRoomModal}
           className="w-full p-4 flex items-center justify-center 
-                      bg-pink-600 text-white text-lg font-extrabold rounded-2xl 
-                      shadow-xl hover:bg-pink-700 transition duration-300 
+                      bg-green-500 text-white text-lg font-extrabold rounded-2xl 
+                      shadow-xl hover:bg-green-700 transition duration-300 
                       transform hover:scale-[1.02] focus:outline-none focus:ring-4 focus:ring-pink-400 
                       active:scale-[1.0] active:shadow-lg"
         >
