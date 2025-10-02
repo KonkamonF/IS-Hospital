@@ -1,19 +1,12 @@
 import React, { useState } from "react";
-// Import รูปภาพ
+
 import i3 from "../../assets/3.png";
 import i4 from "../../assets/4.png";
 import i5 from "../../assets/5.png";
 import i6 from "../../assets/6.png";
 import i7 from "../../assets/7.png";
 
-// **********************************************
-// MOCK DATA & UTILITY FUNCTIONS
-// **********************************************
-
-// Mock Data (ข้อมูลผู้ป่วย)
-// แก้ไขให้เรียกใช้ตัวแปร i3, i4, ... ที่ import เข้ามาโดยตรง
 const patientsData = [
-  // 1. นายชาญชัย มั่นคง - AIA
   {
     id: 1,
     name: "นายชาญชัย มั่นคง",
@@ -27,7 +20,7 @@ const patientsData = [
     insuranceProvider: "AIA",
     age: 68,
     i: i3,
-  }, // 2. นางสาวดวงพร เจริญ - Allianz Ayudhya
+  },
   {
     id: 2,
     name: "นางสาวดวงพร เจริญ",
@@ -41,21 +34,21 @@ const patientsData = [
     insuranceProvider: "Allianz Ayudhya",
     age: 45,
     i: i4,
-  }, // 3. นายวิทวัส อ่อนโยน - Muang Thai Life
+  },
   {
     id: 3,
     name: "นายวิทวัส อ่อนโยน",
     admitStatus: "Admit",
     paymentStatus: "ชำระแล้ว",
-    insuranceStatus: "อนุมัติ",
+    insuranceStatus: "ปฏิเสธ",
     sentTime: new Date(new Date().getTime() - 30 * 60000),
     cost: 87500,
     approvedCost: 87500,
-    roomNumber: "ห้องคู่ 310",
+    roomNumber: "คู่ 310",
     insuranceProvider: "Muang Thai Life",
     age: 32,
     i: i5,
-  }, // 4. นางสมศรี รักษ์ธรรม - Tokio Marine
+  },
   {
     id: 4,
     name: "นางสมศรี รักษ์ธรรม",
@@ -69,7 +62,7 @@ const patientsData = [
     insuranceProvider: "Tokio Marine",
     age: 75,
     i: i6,
-  }, // ผู้ป่วยเพิ่มเติม...
+  },
   {
     id: 5,
     name: "เด็กหญิงใบบัว น่ารัก",
@@ -84,79 +77,9 @@ const patientsData = [
     age: 8,
     i: i7,
   },
-  {
-    id: 6,
-    name: "นายปรีชา ชนะภัย",
-    admitStatus: "Admit",
-    paymentStatus: "รอชำระ",
-    insuranceStatus: "อนุมัติฉุกเฉิน",
-    sentTime: new Date(new Date().getTime() - 15 * 60000),
-    cost: 210000,
-    approvedCost: 200000,
-    roomNumber: "ห้องรวม (ICU) 1",
-    insuranceProvider: "Thai Life",
-    age: 55,
-    i: i3,
-  },
-  {
-    id: 7,
-    name: "นางสาวภารดี พลังจิต",
-    admitStatus: "Admit",
-    paymentStatus: "รอชำระ",
-    insuranceStatus: "ปฏิเสธเบื้องต้น",
-    sentTime: new Date(new Date().getTime() - 25 * 60000),
-    cost: 32000,
-    approvedCost: 0,
-    roomNumber: "เดี่ยวมาตรฐาน 308",
-    insuranceProvider: "Bangkok Health Insurance (TPA)",
-    age: 29,
-    i: i4,
-  },
-  {
-    id: 8,
-    name: "นายมานะ แข็งแกร่ง",
-    admitStatus: "Admit",
-    paymentStatus: "รอชำระ",
-    insuranceStatus: "อนุมัติด่วน",
-    sentTime: new Date(new Date().getTime() - 8 * 60000),
-    cost: 180000,
-    approvedCost: 180000,
-    roomNumber: "ห้องรวม (CCU) 3",
-    insuranceProvider: "Dhipaya Life Insurance (TPA)",
-    age: 40,
-    i: i5,
-  },
-  {
-    id: 9,
-    name: "นางนวลจันทร์ อิ่มเอม",
-    admitStatus: "Admit",
-    paymentStatus: "รอชำระ",
-    insuranceStatus: "อนุมัติ (วงเงินจำกัด)",
-    sentTime: new Date(new Date().getTime() - 40 * 60000),
-    cost: 95000,
-    approvedCost: 80000,
-    roomNumber: "เดี่ยวมาตรฐาน 401",
-    insuranceProvider: "AIA",
-    age: 60,
-    i: i6,
-  },
-  {
-    id: 10,
-    name: "นายสุรศักดิ์ ใจดี",
-    admitStatus: "Admit",
-    paymentStatus: "ชำระแล้ว",
-    insuranceStatus: "อนุมัติ",
-    sentTime: new Date(new Date().getTime() - 60 * 60000),
-    cost: 58000,
-    approvedCost: 58000,
-    roomNumber: "ห้องคู่ 305",
-    insuranceProvider: "Allianz Ayudhya",
-    age: 50,
-    i: i7,
-  },
 ];
 
-// ฟังก์ชันจัดรูปแบบตัวเลขให้เป็นสกุลเงินบาทสั้นๆ (B145,000)
+// ฟังก์ชันจัดรูปแบบตัวเลขให้เป็นสกุลเงินบาท (Bxxx,xxx)
 const formatCurrencyShort = (amount) => {
   return new Intl.NumberFormat("th-TH", {
     style: "currency",
@@ -165,34 +88,16 @@ const formatCurrencyShort = (amount) => {
     maximumFractionDigits: 0,
   })
     .format(amount)
-    .replace("฿", "B"); // เปลี่ยน ฿ เป็น B ตามรูป
+    .replace("฿", "B");
 };
 
-// ฟังก์ชันสำหรับดึงรายละเอียดทางการแพทย์
-const getPatientDetails = (id) => {
-  const details = {
-    1: {
-      diagnosis: "Pneumonia (ปอดอักเสบ)",
-      vitals: "Temp: 38.8°C",
-      treatment: "IV Antibiotic",
-    },
-    2: {
-      diagnosis: "Arrhythmia (AF with RVR)",
-      vitals: "HR: 135 bpm",
-      treatment: "Rate control",
-    },
-    3: {
-      diagnosis: "Upper GI Bleeding",
-      vitals: "Hb: 9.5",
-      treatment: "IV PPI, EGD",
-    },
-    4: {
-      diagnosis: "Pneumonia (ผู้สูงอายุ)",
-      vitals: "Temp: 37.8°C",
-      treatment: "IV Antibiotics",
-    },
-  };
-  return details[id] || { diagnosis: "N/A", vitals: "N/A", treatment: "N/A" };
+// ฟังก์ชันคำนวณเวลาที่รอ
+const getWaitingTime = (sentTime) => {
+  if (!sentTime) return "-";
+  const diffMs = new Date() - new Date(sentTime);
+  const diffMin = Math.floor(diffMs / 60000);
+  if (diffMin < 1) return "น้อยกว่า 1 นาที";
+  return `${diffMin} นาที`;
 };
 
 // **********************************************
@@ -201,97 +106,68 @@ const getPatientDetails = (id) => {
 const PatientDetailCard = ({ patient, onClose }) => {
   if (!patient) return null;
 
-  const details = getPatientDetails(patient.id);
   const selfPayCost = patient.cost - patient.approvedCost;
 
   return (
     <div className="mt-6 p-6 bg-white border border-[#2155CD] rounded-lg shadow-2xl">
-           {" "}
       <div className="flex justify-between items-start border-b-2 border-indigo-200 pb-3 mb-4">
-               {" "}
         <h3 className="text-xl font-bold text-[#2155CD]">
-                    🧑‍⚕️ รายละเอียดทางการแพทย์และค่าใช้จ่าย: {patient.name}       {" "}
+          🧑‍⚕️ รายละเอียดผู้ป่วย: {patient.name}
         </h3>
-               {" "}
         <button
           onClick={onClose}
           className="text-gray-500 hover:text-red-600 transition duration-150 text-2xl font-light"
           title="ปิดรายละเอียด"
         >
-                    &times;        {" "}
+          &times;
         </button>
-             {" "}
       </div>
-           {" "}
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Medical Details */}       {" "}
+        {/* Medical Info */}
         <div className="space-y-3 p-4 bg-blue-50 rounded-lg border border-blue-200">
-                   {" "}
           <p className="font-bold text-blue-800 text-lg border-b border-blue-200 pb-1">
-                        การวินิจฉัยและการรักษา          {" "}
+            ข้อมูลทั่วไป
           </p>
-                   {" "}
           <p>
-            <span className="font-semibold text-gray-700">Diagnosis:</span>{" "}
-            <span className="text-red-600 font-bold">{details.diagnosis}</span>
+            <span className="font-semibold text-gray-700">ห้องพัก:</span>{" "}
+            {patient.roomNumber}
           </p>
-                   {" "}
           <p>
-            <span className="font-semibold text-gray-700">Treatment:</span>{" "}
-            {details.treatment}
+            <span className="font-semibold text-gray-700">บริษัทประกัน:</span>{" "}
+            {patient.insuranceProvider}
           </p>
-                 {" "}
         </div>
-                {/* Financial Details (ตรงตามภาพ) */}       {" "}
+
+        {/* Financial Info */}
         <div className="space-y-3 p-4 bg-gray-100 rounded-lg border border-gray-300">
-                   {" "}
           <p className="font-bold text-gray-800 text-lg border-b border-gray-300 pb-1">
-                        สรุปค่าใช้จ่ายประกัน          {" "}
+            สรุปค่าใช้จ่าย
           </p>
-                   {" "}
           <div className="flex justify-between font-bold text-lg text-blue-700">
-                        <span>ยอดรวมค่ารักษา:</span>             {" "}
-            {/* แก้ไขให้แสดงผลลัพธ์เป็น Bxxxx,xxx ตามรูป */}           {" "}
-            <span>{formatCurrencyShort(patient.cost)}</span>         {" "}
+            <span>ยอดรวมค่ารักษา:</span>
+            <span>{formatCurrencyShort(patient.cost)}</span>
           </div>
-                   {" "}
           <div className="flex justify-between text-base border-t border-dashed pt-2">
-                       {" "}
             <span className="font-semibold text-green-600">
               ยอดอนุมัติโดยประกัน:
             </span>
-                        <span>{formatCurrencyShort(patient.approvedCost)}</span>
-                     {" "}
+            <span>{formatCurrencyShort(patient.approvedCost)}</span>
           </div>
-                             {" "}
           <div className="flex justify-between font-extrabold text-xl text-red-700 pt-1">
-                        <span>ยอดชำระเอง (Co-pay):</span>           {" "}
-            <span>{formatCurrencyShort(selfPayCost)}</span>         {" "}
+            <span>ยอดชำระเอง (Co-pay):</span>
+            <span>{formatCurrencyShort(selfPayCost)}</span>
           </div>
-                 {" "}
         </div>
-             {" "}
       </div>
-         {" "}
     </div>
   );
 };
 
-// **********************************************
-// Main Component: BodyAdmin
-// **********************************************
 export default function BodyAdmin() {
   const [patients] = useState(patientsData);
   const [expandedRowId, setExpandedRowId] = useState(null);
-  const [selectedPatientId, setSelectedPatientId] = useState(null); // Function to calculate waiting time
-
-  const getWaitingTime = (sentTime) => {
-    if (!sentTime) return "-";
-    const diffMs = new Date() - new Date(sentTime);
-    const diffMin = Math.floor(diffMs / 60000);
-    if (diffMin < 1) return "น้อยกว่า 1 นาที";
-    return `${diffMin} นาที`;
-  };
+  const [selectedPatientId, setSelectedPatientId] = useState(null);
 
   const ipdPatients = patients.filter((p) => p.admitStatus === "Admit");
   const selectedPatient =
@@ -299,34 +175,28 @@ export default function BodyAdmin() {
 
   return (
     <div className="p-4 md:p-6 bg-gray-50 min-h-screen">
-           {" "}
       <h2 className="text-2xl md:text-3xl font-extrabold text-[#2155CD] mb-4 md:mb-6 border-b-4 border-yellow-500 pb-2">
-                🛡️ IPD Insurance Administration Dashboard      {" "}
+        🛡️ IPD Insurance Administration Dashboard
       </h2>
-           {" "}
+
+      {/* Table: Desktop View */}
       <div className="rounded-lg shadow-2xl overflow-x-auto">
-                {/* ตารางหลัก: Desktop View (UI ตรงตามภาพ) */}       {" "}
-        <table className="w-full min-w-[1200px] border-collapse border hidden md:table">
-                   {" "}
-          <thead className="bg-[#2155CD] text-white sticky top-0">
-                       {" "}
+        <table className="w-full min-w-[1200px] border-collapse hidden md:table">
+          <thead className="bg-[#2155CD] text-white sticky top-0 text-sm">
             <tr>
-                            <th className="p-3 text-left w-[50px]">รูป</th>     
-                      <th className="p-3 text-left">ชื่อผู้ป่วย / อายุ</th>     
-                      <th className="p-3 text-left">เลขห้อง</th>             {" "}
-              <th className="p-3 text-left">บริษัทประกัน</th>             {" "}
-              <th className="p-3 text-right">ยอดรวมค่ารักษา</th>             {" "}
-              <th className="p-3 text-right">ยอดอนุมัติ</th>             {" "}
-              <th className="p-3 text-right">ยอดชำระเอง</th>             {" "}
-              <th className="p-3 text-left">สถานะชำระเงิน</th>             {" "}
-              <th className="p-3 text-left">สถานะประกัน</th>             {" "}
-              <th className="p-3 text-left">เวลาที่รอ</th>           {" "}
+              <th className="p-3 text-center w-[60px]">รูป</th>
+              <th className="p-3 text-left w-[220px]">ชื่อผู้ป่วย / อายุ</th>
+              <th className="p-3 text-left w-[160px]">เลขห้อง</th>
+              <th className="p-3 text-left w-[220px]">บริษัทประกัน</th>
+              <th className="p-3 text-right w-[150px]">ยอดรวมค่ารักษา</th>
+              <th className="p-3 text-right w-[150px]">ยอดอนุมัติ</th>
+              <th className="p-3 text-right w-[150px]">ยอดชำระเอง</th>
+              <th className="p-3 text-center w-[120px]">สถานะชำระเงิน</th>
+              <th className="p-3 text-center w-[160px]">สถานะประกัน</th>
+              <th className="p-3 text-center w-[100px]">เวลาที่รอ</th>
             </tr>
-                     {" "}
           </thead>
-                   {" "}
-          <tbody>
-                       {" "}
+          <tbody className="text-sm">
             {ipdPatients.map((p) => {
               const waitingTime = p.sentTime
                 ? new Date() - new Date(p.sentTime)
@@ -344,90 +214,78 @@ export default function BodyAdmin() {
                   }`}
                   onClick={() => setSelectedPatientId(p.id)}
                 >
-                                   {" "}
-                  <td className="p-3">
-                                       {" "}
+                  <td className="p-3 text-center">
                     <img
                       src={p.i}
                       alt=""
-                      className="w-[40px] h-[40px] rounded-full object-cover"
+                      className="w-[40px] h-[40px] rounded-full object-cover mx-auto"
                     />
-                                     {" "}
                   </td>
-                                   {" "}
-                  <td className="p-3 font-medium text-gray-900">
-                                        {p.name}{" "}
-                    <span className="text-sm text-gray-500">({p.age} ปี)</span> 
-                                   {" "}
+                  <td className="p-3 font-medium text-gray-900 whitespace-nowrap">
+                    {p.name}{" "}
+                    <span className="text-sm text-gray-500">({p.age} ปี)</span>
                   </td>
-                                   {" "}
-                  <td className="p-3 font-bold text-indigo-600">
-                                        {p.roomNumber}                 {" "}
+                  <td className="p-3 font-bold text-indigo-600 whitespace-nowrap">
+                    {p.roomNumber}
                   </td>
-                                   {" "}
-                  <td className="p-3 text-sm text-gray-600">
-                                        {p.insuranceProvider}                 {" "}
+                  <td className="p-3 text-gray-600 whitespace-nowrap">
+                    {p.insuranceProvider}
                   </td>
-                                   {" "}
                   <td className="p-3 text-right font-bold text-blue-700">
-                                        {formatCurrencyShort(p.cost)}           
-                         {" "}
+                    {formatCurrencyShort(p.cost)}
                   </td>
-                                   {" "}
                   <td className="p-3 text-right font-bold text-green-600">
-                                        {formatCurrencyShort(p.approvedCost)}   
-                                 {" "}
+                    {formatCurrencyShort(p.approvedCost)}
                   </td>
-                                   {" "}
                   <td className="p-3 text-right font-bold text-red-600">
-                                        {formatCurrencyShort(selfPayCost)}     
-                               {" "}
+                    {formatCurrencyShort(selfPayCost)}
                   </td>
-                                   {" "}
                   <td
-                    className={`p-3 font-semibold ${
+                    className={`p-3 text-center font-semibold whitespace-nowrap ${
                       p.paymentStatus === "ชำระแล้ว"
                         ? "text-green-600"
                         : "text-yellow-600"
                     }`}
                   >
-                                        {p.paymentStatus}                 {" "}
+                    {p.paymentStatus}
                   </td>
-                                   {" "}
-                  <td className="p-3 font-semibold text-green-600">
-                                        {p.insuranceStatus}                 {" "}
-                  </td>
-                                   {" "}
+                  {(() => {
+                    let badgeClass = "text-yellow-600 flex justify-center p-5"; // ค่าเริ่มต้น = เหลือง
+                    if (p.insuranceStatus.includes("อนุมัติ")) {
+                      badgeClass = "text-green-600 flex justify-center p-5";
+                    } else if (p.insuranceStatus.includes("ปฏิเสธ")) {
+                      badgeClass = "text-red-600 flex justify-center p-5 ";
+                    }
+                    return (
+                      <span className={`font-semibold p-5 ${badgeClass}`}>
+                        {p.insuranceStatus}
+                      </span>
+                    );
+                  })()}
                   <td
-                    className={`p-3 font-bold ${
+                    className={`p-3 text-center font-bold ${
                       isOver1h ? "text-red-600" : "text-green-700"
                     }`}
                   >
-                                        {getWaitingTime(p.sentTime)}           
-                         {" "}
+                    {getWaitingTime(p.sentTime)}
                   </td>
-                                 {" "}
                 </tr>
               );
             })}
-                     {" "}
           </tbody>
-                 {" "}
         </table>
-             {" "}
       </div>
-            {/* ส่วนแสดงรายละเอียดผู้ป่วยที่ถูกเลือก (Desktop Only) */}     {" "}
+
+      {/* Patient Detail: Desktop */}
       <div className="hidden md:block">
-               {" "}
         <PatientDetailCard
           patient={selectedPatient}
           onClose={() => setSelectedPatientId(null)}
         />
-             {" "}
       </div>
-                    {/* Card/Expandable Row Layout: Mobile View */}     {" "}
-      <div className="md:hidden space-y-3">
-               {" "}
+
+      {/* Card Layout: Mobile */}
+      <div className="md:hidden space-y-3 mt-4">
         {ipdPatients.map((p) => {
           const isExpanded = expandedRowId === p.id;
           const selfPayCost = p.cost - p.approvedCost;
@@ -437,87 +295,70 @@ export default function BodyAdmin() {
               className="bg-white rounded-lg shadow-md border-l-4 border-[#2155CD] p-3"
               onClick={() => setExpandedRowId(isExpanded ? null : p.id)}
             >
-                             {" "}
               <div className="flex items-center justify-between">
-                                   {" "}
                 <div className="flex items-center space-x-3">
-                                         {" "}
                   <img
                     src={p.i}
                     alt=""
                     className="w-10 h-10 rounded-full object-cover"
                   />
-                                         {" "}
                   <div>
-                                               {" "}
-                    <p className="font-bold">{p.name}</p>                       
-                       {" "}
+                    <p className="font-bold">{p.name}</p>
                     <p className="text-sm text-gray-500">
                       ห้อง {p.roomNumber} ({p.age} ปี)
                     </p>
-                                           {" "}
                   </div>
-                                     {" "}
                 </div>
-                                   {" "}
                 <div className="flex flex-col items-end">
-                                         {" "}
-                  <span className="font-semibold text-xs px-2 py-1 rounded-full bg-green-100 text-green-800">
-                                                {p.insuranceStatus}             
-                             {" "}
-                  </span>
-                                         {" "}
+                  {/* <span className="font-semibold text-xs px-2 py-1 rounded-full bg-green-100 text-green-800">
+                    {p.insuranceStatus}
+                  </span> */}
+                  {(() => {
+                    let badgeClass = "bg-yellow-100 text-yellow-800"; // ค่าเริ่มต้น = เหลือง
+                    if (p.insuranceStatus.includes("อนุมัติ")) {
+                      badgeClass = "bg-green-100 text-green-800";
+                    } else if (p.insuranceStatus.includes("ปฏิเสธ")) {
+                      badgeClass = "bg-red-100 text-red-800";
+                    }
+                    return (
+                      <span
+                        className={`font-semibold text-xs px-2 py-1 rounded-full ${badgeClass}`}
+                      >
+                        {p.insuranceStatus}
+                      </span>
+                    );
+                  })()}
                   <span className="text-xs text-gray-400">
-                                                รอ: {getWaitingTime(p.sentTime)}
-                                           {" "}
+                    รอ: {getWaitingTime(p.sentTime)}
                   </span>
-                                     {" "}
                 </div>
-                               {" "}
               </div>
-                             {" "}
               {isExpanded && (
                 <div className="mt-3 pt-3 border-t space-y-2">
-                                         {" "}
                   <div className="flex justify-between font-bold text-sm">
-                                               {" "}
-                    <span className="text-blue-700">ยอดรวม:</span>             
-                                 {" "}
+                    <span className="text-blue-700">ยอดรวม:</span>
                     <span className="text-blue-700">
                       {formatCurrencyShort(p.cost)}
                     </span>
-                                           {" "}
                   </div>
-                                         {" "}
                   <div className="flex justify-between text-sm">
-                                               {" "}
-                    <span className="text-green-600">อนุมัติ:</span>           
-                                   {" "}
+                    <span className="text-green-600">อนุมัติ:</span>
                     <span className="text-green-600">
                       {formatCurrencyShort(p.approvedCost)}
                     </span>
-                                           {" "}
                   </div>
-                                         {" "}
                   <div className="flex justify-between text-sm font-extrabold">
-                                               {" "}
-                    <span className="text-red-600">ชำระเอง:</span>             
-                                 {" "}
+                    <span className="text-red-600">ชำระเอง:</span>
                     <span className="text-red-600">
                       {formatCurrencyShort(selfPayCost)}
                     </span>
-                                           {" "}
                   </div>
-                                     {" "}
                 </div>
               )}
-                         {" "}
             </div>
           );
         })}
-             {" "}
       </div>
-         {" "}
     </div>
   );
 }
