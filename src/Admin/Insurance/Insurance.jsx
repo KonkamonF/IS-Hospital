@@ -18,9 +18,9 @@ const mockPatientsData = [
             lengthOfStayDays: 7, // ระยะเวลาที่นอน (จำลอง)
         },
         costs: {
-            currentIncurred: 85000, // ค่ารักษาพยาบาลทั้งหมดที่เกิดขึ้นแล้ว
+            currentIncurred: 145000, // ค่ารักษาพยาบาลทั้งหมดที่เกิดขึ้นแล้ว
             futureEstimated: 35000, // ค่ารักษาพยาบาลที่คาดว่าจะเกิดขึ้นในอนาคต
-            insurancePaymentToDate: 55000, // ส่วนที่ประกันจ่ายไปแล้ว
+            insurancePaymentToDate: 135000, // ส่วนที่ประกันจ่ายไปแล้ว
         },
         policy: {
             provider: "AIA", // UPDATED
@@ -29,7 +29,7 @@ const mockPatientsData = [
             annualLimit: 150000, // วงเงินต่อปี
             roomLimitDaily: 4000, // วงเงินค่าห้องต่อวัน
             outpatientLimit: 10000,
-            deductible: 5000, // ค่าเสียหายส่วนแรก (ที่ผู้ป่วยต้องจ่ายก่อน)
+            deductible: 0, // ค่าเสียหายส่วนแรก (ที่ผู้ป่วยต้องจ่ายก่อน)
         }
     },
     {
