@@ -30,11 +30,11 @@ export default function SignIn({ onClose }) {
         <div className="p-6 sm:p-8">
           <h2 className="text-2xl font-bold text-center">Sign In</h2>
           <form action="" className="flex flex-col gap-2">
-            <label htmlFor="username">Username</label>
+            <label htmlFor="username">E-mail</label>
             <input
               type="text"
               id="username"
-              placeholder="Username..."
+              placeholder="E-mail"
               className="
     w-full px-3 py-2 rounded-lg
     bg-white/95 text-[#2155CD] placeholder-[#2155CD]/50
