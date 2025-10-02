@@ -1,5 +1,4 @@
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
-import Services from "../src/User/Body/Services";
 import Visitor from "../src/User/Body/Visitor";
 import Healthy from "../src/User/Body/Healthy";
 import MainBody from "../src/User/Body/MainBody";
@@ -10,6 +9,7 @@ import BodyDoctor from "./Admin/Body/BodyDoctor";
 import BodyNurse from "./Admin/Body/BodyNurse";
 import Insurance from "./Admin/Insurance/Insurance";
 import Patient from "./User/Body/Patient";
+import Services from "../src/User/Body/Services";
 
 const route = createBrowserRouter([
   {
@@ -17,7 +17,7 @@ const route = createBrowserRouter([
     element: <MainComponent />,
     children: [
       { index: true, element: <MainBody /> },
-      { path: "services", element: <Services /> },
+      { path: "services", element: <Services/> },
       { path: "visitor", element: <Visitor /> },
       { path: "healthy", element: <Healthy /> },
       { path: "patient", element: <Patient /> },
