@@ -322,7 +322,7 @@ export default function BodyAdmin() {
                     }
                     return (
                       <span
-                        className={`font-semibold text-xs px-2 py-1 rounded-full ${badgeClass}`}
+                        className={`font-semibold text-xs px-2 py-1 rounded-full text-center ${badgeClass}`}
                       >
                         {p.insuranceStatus}
                       </span>
