@@ -76,13 +76,6 @@ export default function SidebarAdmin({ isOpen, setIsOpen }) {
       `}
     >
       <div className="p-6 border-b flex justify-between items-center">
-        <Link
-          to={"/admin"}
-          onClick={() => setIsOpen(false)}
-          className="text-xl font-semibold text-[#2155CD] tracking-wider"
-        >
-          Admin Panel
-        </Link>
         {/* ปุ่มปิด: ใช้สำหรับยุบ Sidebar ทั้งบน Mobile และ Desktop */}
         <button
           onClick={() => setIsOpen(false)}
@@ -93,6 +86,13 @@ export default function SidebarAdmin({ isOpen, setIsOpen }) {
         </button>
       </div>
       <nav className="mt-4 space-y-1">
+        <Link
+          to={"/admin"}
+          onClick={() => setIsOpen(false)}
+          className={activeLinkClass}
+        >
+          Dashboard
+        </Link>
         <Link
           to={"/admin/doctor"}
           onClick={() => setIsOpen(false)}
