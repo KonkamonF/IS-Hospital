@@ -10,81 +10,94 @@ export default function BodyAdmin() {
   const [patients, setPatients] = useState([
     {
       id: 1,
-      name: "Somchai Prasert",
+      name: "นายชาญชัย มั่นคง",
       admitStatus: "Admit", // IPD
       paymentStatus: "รอชำระ",
-      insuranceStatus: "รอส่งประกัน",
-      sentTime: null,
-      cost: 15500,
-      roomNumber: "301",
-      insuranceProvider: "AIA",
+      insuranceStatus: "ประกันตอบกลับ",
+      sentTime: new Date(new Date().getTime() - 5 * 60000),
+      cost: 145000,
+      roomNumber: "ห้องเดี่ยวพิเศษ (VIP) 501",
+      insuranceProvider: "AIA - Prestige Health",
       age: 45, // NEW: เพิ่มอายุ
       i: i3,
     },
     {
       id: 2,
-      name: "Warinya Thongdee",
-      admitStatus: "OPD", // จะถูก Filter ออก
-      paymentStatus: "ชำระแล้ว",
+      name: "นางสาวดวงพร เจริญ",
+      admitStatus: "Admit", // จะถูก Filter ออก
+      paymentStatus: "รอชำระ",
       insuranceStatus: "รอตอบกลับ",
       sentTime: new Date(new Date().getTime() - 70 * 60000),
       cost: 4200,
-      roomNumber: "-",
+      roomNumber: "ห้องเดี่ยวมาตรฐาน 405",
       insuranceProvider: "Allianz Ayudhya",
       age: 28, // NEW: เพิ่มอายุ
       i: i4,
     },
     {
       id: 3,
-      name: "Anan Pholchai",
+      name: "นายวิทวัส อ่อนโยน",
       admitStatus: "Admit", // IPD
       paymentStatus: "ชำระแล้ว",
       insuranceStatus: "อนุมัติ",
       sentTime: new Date(new Date().getTime() - 30 * 60000),
       cost: 87500,
-      roomNumber: "410",
+      roomNumber: "ห้องเดี่ยวพิเศษ (VIP) 310",
       insuranceProvider: "Muang Thai Life",
       age: 62, // NEW: เพิ่มอายุ
       i: i5,
     },
     {
       id: 4,
-      name: "Chutima Sriboon",
+      name: "นางสมศรี รักษ์ธรรม",
       admitStatus: "Admit", // IPD
       paymentStatus: "รอชำระ",
       insuranceStatus: "รอตอบกลับ",
       sentTime: new Date(new Date().getTime() - 120 * 60000),
       cost: 45000,
-      roomNumber: "205",
+      roomNumber: "ห้องเดี่ยวมาตรฐาน 205",
       insuranceProvider: "Krungthai-AXA",
       age: 33, // NEW: เพิ่มอายุ
       i: i6,
     },
     {
       id: 5,
-      name: "Pichai Meesuk",
+      name: "เด็กหญิงใบบัว น่ารัก",
       admitStatus: "Admit", // IPD
       paymentStatus: "รอชำระ",
       insuranceStatus: "ปฏิเสธ",
       sentTime: new Date(new Date().getTime() - 10 * 60000),
       cost: 21000,
-      roomNumber: "502",
+      roomNumber: "ห้องเดี่ยวพิเศษ (VIP) 505",
       insuranceProvider: "Bangkok Health Insurance (TPA)",
       age: 50, // NEW: เพิ่มอายุ
       i: i7,
     },
     {
       id: 6,
-      name: "Supaporn Dee",
+      name: "นายปรีชา ชนะภัย",
       admitStatus: "Admit", // IPD
       paymentStatus: "ชำระแล้ว",
       insuranceStatus: "ส่งแล้ว",
       sentTime: new Date(new Date().getTime() - 15 * 60000),
       cost: 32000,
-      roomNumber: "308",
+      roomNumber: "ห้องรวม (ICU) 1",
       insuranceProvider: "Tokio Marine",
       age: 29, // NEW: เพิ่มอายุ
       i: i4,
+    },
+     {
+      id: 6,
+      name: "นายปรีชา ชนะภัย",
+      admitStatus: "Admit", // IPD
+      paymentStatus: "ชำระแล้ว",
+      insuranceStatus: "ส่งแล้ว",
+      sentTime: new Date(new Date().getTime() - 15 * 60000),
+      cost: 32000,
+      roomNumber: "ห้องรวม (ICU) 1",
+      insuranceProvider: "Tokio Marine",
+      age: 29, // NEW: เพิ่มอายุ
+      i: i5,
     },
   ]);
 
@@ -157,7 +170,7 @@ export default function BodyAdmin() {
                   className="border-b bg-white hover:bg-indigo-50 transition"
                 >
                   <td className="p-3">
-                    <img src={p.i} alt="" className="w-full max-w-[50px]" />
+                    <img src={p.i} alt="" className="w-[100px]" />
                   </td>
                   <td className="p-3 font-medium text-gray-900">{p.name}</td>
                   <td className="p-3 font-bold text-indigo-600">
@@ -193,7 +206,7 @@ export default function BodyAdmin() {
                   </td>
                   <td
                     className={`p-3 ${
-                      isOver1h ? "text-red-600 font-bold" : "text-gray-700"
+                      isOver1h ? "text-red-600 font-bold" : "text-green-700 font-bold"
                     }`}
                   >
                     {getWaitingTime(p.sentTime)}

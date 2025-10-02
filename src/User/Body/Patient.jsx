@@ -2,14 +2,14 @@ import React, { useState } from "react";
 
 // ข้อมูลจำลองสำหรับผู้ป่วย
 const patientData = {
-  name: "สมชาย ใจดี",
-  patientId: "P001234",
-  insuranceBalance: "50,000 บาท",
-  policyInfo: "Aetna Health Plan - Silver",
-  outstandingPayment: "4,500 บาท",
-  room: "ห้องพิเศษ 205",
-  treatmentPlan: "กายภาพบำบัด 2 ครั้ง/สัปดาห์",
-  doctorDiagnosis: "กล้ามเนื้ออักเสบเรื้อรัง (Chronic Myositis)",
+  name: "นายชาญชัย มั่นคง",
+  patientId: "P001001",
+  insuranceBalance: "100,000 บาท", // วงเงินสูง
+  policyInfo: "AIA - Prestige Health",
+  outstandingPayment: "45,000 บาท", // เคลมได้ 100%
+  room: "ห้องเดี่ยวพิเศษ (VIP) 501",
+  treatmentPlan: "IV Ceftriaxone, Monitor O2 Saturation",
+  doctorDiagnosis: "Pneumonia (ปอดอักเสบ)",
 };
 
 // ข้อมูลการแจ้งเตือนจำลอง
