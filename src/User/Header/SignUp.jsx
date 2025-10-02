@@ -183,6 +183,7 @@ export default function SignUp({ onSignUp }) {
 
             <div className="md:col-span-2 pt-2">
               <button
+              onClick={onSignUp}
                 type="submit"
                 className="
                   w-full rounded-lg bg-[#42C2FF] px-4 py-2 font-medium text-white

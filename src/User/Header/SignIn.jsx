@@ -65,9 +65,13 @@ export default function SignIn({ onClose }) {
           </form>
 
           <div className="mt-6">
-            <button 
-            onClick={onClose}
-            className="w-full rounded-lg bg-[#42C2FF] px-4 py-2 font-medium text-white hover:opacity-90">
+            <button
+              onClick={onClose}
+              className="w-full rounded-lg bg-[#42C2FF] px-4 py-2 font-medium text-white hover:opacity-90
+                  focus:outline-none focus:ring-2 focus:ring-[#a1e1ff]
+                  focus:ring-offset-2 focus:ring-offset-[#2155CD]
+                  transition"
+            >
               Sign In
             </button>
           </div>
