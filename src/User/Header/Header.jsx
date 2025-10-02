@@ -4,7 +4,7 @@ import { IoPersonCircleOutline } from "react-icons/io5";
 import { MdPersonAddAlt1, MdPersonSearch } from "react-icons/md";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"; // Import Link is already here!
 
 function NavDropdown({ label, items }) {
   const [open, setOpen] = useState(false);
@@ -49,15 +49,15 @@ function NavDropdown({ label, items }) {
         role="menu"
       >
         {items.map((it, i) => (
-          <a
+          <Link // <--- CHANGED FROM <a>
             key={i}
-            href={it.href}
+            to={it.href} // <--- CHANGED FROM href={} TO to={}
             className="block px-3 py-2 hover:bg-[#42C2FF] hover:text-white"
             onClick={() => setOpen(false)}
             role="menuitem"
           >
             {it.label}
-          </a>
+          </Link> // <--- CHANGED FROM </a>
         ))}
       </div>
     </div>
@@ -107,19 +107,19 @@ export default function Header() {
           </button>
 
           <nav className="hidden md:flex items-center gap-4">
-            <a
-              href="/"
+            <Link // Changed from <a> to <Link> for consistency and client-side routing
+              to="/" // Changed from href to to
               className="px-3 py-2 rounded-md hover:bg-gray-200
                        focus:outline-none focus:ring-2 focus:ring-[#a1e1ff]
                        focus:ring-offset-2 focus:ring-offset-[#2155CD] transition"
             >
               Home
-            </a>
+            </Link>
 
             <NavDropdown
               label="Services"
               items={[
-                { label: "1", href: "services" },
+                { label: "1", href: "/services" },
                 { label: "2", href: "/Services/2" },
               ]}
             />
@@ -133,7 +133,7 @@ export default function Header() {
             <NavDropdown
               label="Be Healthy"
               items={[
-                { label: "1", href: "healthy" },
+                { label: "1", href: "/Healthy" },
                 { label: "2", href: "/Healthy/2" },
               ]}
             />
