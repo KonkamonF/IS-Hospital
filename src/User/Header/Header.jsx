@@ -117,24 +117,24 @@ export default function Header() {
             </Link>
 
             <NavDropdown
-              label="Services"
+              label="Room Type"
               items={[
-                { label: "1", href: "/services" },
-                { label: "2", href: "/Services/2" },
+                { label: "Room Type", href: "/services" },
+                { label: "Room Service", href: "/Services/2" },
               ]}
             />
             <NavDropdown
               label="Visitor Guides"
               items={[
-                { label: "1", href: "visitor" },
-                { label: "2", href: "/Visitor/2" },
+                { label: "Visitor", href: "visitor" },
+                { label: "Guides", href: "/Visitor/2" },
               ]}
             />
             <NavDropdown
               label="Be Healthy"
               items={[
-                { label: "1", href: "/Healthy" },
-                { label: "2", href: "/Healthy/2" },
+                { label: "Healthy", href: "/Healthy" },
+                { label: "Health", href: "/Healthy/2" },
               ]}
             />
 
