@@ -50,7 +50,7 @@ export default function SignIn({ onClose }) {
             <input
               type="password"
               id="password"
-              placeholder="Password..."
+              placeholder="Password"
               className="
     w-full px-3 py-2 rounded-lg
     bg-white/95 text-[#2155CD] placeholder-[#2155CD]/50

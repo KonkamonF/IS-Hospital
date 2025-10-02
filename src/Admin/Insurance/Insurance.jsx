@@ -7,7 +7,7 @@ const mockPatientsData = [
         id: 'HN123456',
         patient: {
             name: "นายสมชาย ประเสริฐ",
-            hn: "HN123456",
+            hn: "P001001",
             id: "145xxxxxx",
             status: "กำลังรักษา",
         },
