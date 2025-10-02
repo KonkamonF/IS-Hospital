@@ -9,7 +9,7 @@ import i7 from "../../assets/7.png";
 const patientsData = [
   {
     id: 1,
-    name: "นายชาญชัย มั่นคง",
+    name: "นายสมชาย ประเสริฐ",
     admitStatus: "Admit",
     paymentStatus: "รอชำระ",
     insuranceStatus: "อนุมัติ",

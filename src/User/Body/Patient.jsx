@@ -6,7 +6,7 @@ import React, { useState } from "react";
 
 // ข้อมูลจำลองสำหรับผู้ป่วย
 const patientData = {
-  name: "นายชาญชัย มั่นคง",
+  name: "นายสมชาย ประเสริฐ",
   patientId: "P001001",
   insuranceBalance: "100,000 บาท", 
   policyInfo: "AIA - Prestige Health",
