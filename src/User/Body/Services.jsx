@@ -103,8 +103,8 @@ const ROOM_DATA = [
 ];
 
 
-// Main App Component
-export default function App() {
+
+export default function Serives() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const totalSlides = ROOM_DATA.length; 
   const delay = 4000; // Autoplay delay
