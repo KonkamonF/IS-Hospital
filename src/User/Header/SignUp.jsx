@@ -44,7 +44,7 @@ export default function SignUp({ onSignUp }) {
       onClick={handleBackdropClick}
       className="
         fixed inset-0 z-[100] flex items-center justify-center bg-black/40 p-4
-        overflow-y-hidden md:overflow-y-auto  
+        md:overflow-y-auto  
       "
       role="dialog"
       aria-modal="true"
@@ -53,15 +53,15 @@ export default function SignUp({ onSignUp }) {
       <div
         onClick={stop}
         className="
-          relative w-full max-w-md rounded-2xl bg-white shadow-2xl
-          max-h-[60vh] md:max-h-[45vh] overflow-y-auto overflow-visible
+          relative rounded-2xl bg-white shadow-2xl
+          
         "
       >
         {/* ปุ่มปิด */}
         <button
           onClick={onSignUp}
           aria-label="Close"
-          className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 z-[200] inline-flex p-2 items-center justify-center rounded-full bg-white text-slate-600 shadow-md ring-1 ring-slate-200 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-[#cd2d33]"
+          className="absolute top-1 right-1 -translate-y-1/2 translate-x-1/2 z-[200] inline-flex p-2 items-center justify-center rounded-full bg-white text-slate-600 shadow-md ring-1 ring-slate-200 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-[#cd2d33]"
         >
           <IoClose size={20} />
         </button>

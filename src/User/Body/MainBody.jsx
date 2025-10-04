@@ -11,10 +11,10 @@ export default function MainBody() {
             Real-time Fax Claim Service
           </h1>
           <p className="text-gray-600">
-            Our product offers a Real-time Fax Claim Service, sending treatment
-            and billing details directly to insurance providers. This speeds up
-            claim approval, reduces paperwork, and shortens patient waiting
-            times.
+            Our service offers a Real-time service including sending treatment
+            records and billing details directly to insurance providers. You
+            will get benefit to speed up claim approval, reduce paperwork, and
+            shorten patient waiting times.
           </p>
           <img src={Logo} alt="" />
         </div>
