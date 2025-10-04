@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import i3 from "../../assets/3.png";
 
 // **********************************************
 const patientData = {
@@ -10,6 +11,7 @@ const patientData = {
   room: "ห้องเดี่ยวพิเศษ (VIP) 501", // ข้อมูลห้องพักปัจจุบัน
   treatmentPlan: "IV Ceftriaxone, Monitor O2 Saturation",
   doctorDiagnosis: "Pneumonia (ปอดอักเสบ)",
+  i:i3
 };
 
 // ข้อมูลการแจ้งเตือนจำลอง
@@ -354,6 +356,7 @@ export default function PatientDashboard() {
       {/* 1. Header ผู้ป่วย */}
       <header className="mb-8 pb-4 border-b-4 border-indigo-500">
         <h1 className="text-2xl md:text-3xl font-extrabold text-gray-800 flex items-center">
+          <img src={patientData.i} alt="" className="w-[250px]"/>
           <svg
             className="w-8 h-8 mr-2 text-indigo-600"
             fill="none"
