@@ -1,21 +1,25 @@
 import React from "react";
+import Logo from "../../assets/LogononBg.png";
 
 export default function MainBody() {
   return (
     <div className="p-8 bg-gray-50 min-h-screen">
-      <div className="max-w-5xl mx-auto space-y-6">
+      <div className="max-w-6xl mx-auto space-y-6">
         {/* Header */}
-        <div className="text-center">
-          <h1 className="text-3xl font-bold text-blue-900">
-            ศูนย์การแพทย์และบริการโรงพยาบาล
+        <div className="text-center flex flex-col items-center gap-4">
+          <h1 className="text-4xl font-bold text-blue-600">
+            Real-time Fax Claim Service
           </h1>
-          <p className="text-gray-600 mt-2">
-            ดูแลสุขภาพของคุณด้วยทีมแพทย์ผู้เชี่ยวชาญและเทคโนโลยีทางการแพทย์ที่ทันสมัย
+          <p className="text-gray-600">
+            Our product offers a Real-time Fax Claim Service, sending treatment
+            and billing details directly to insurance providers. This speeds up
+            claim approval, reduces paperwork, and shortens patient waiting
+            times.
           </p>
+          <img src={Logo} alt="" />
         </div>
-
         {/* Introduction */}
-        <div className="bg-white shadow-md rounded-2xl p-6">
+        {/* <div className="bg-white shadow-md rounded-2xl p-6">
           <h2 className="text-xl font-semibold text-blue-700 mb-3">
             เกี่ยวกับเรา
           </h2>
@@ -27,7 +31,7 @@ export default function MainBody() {
           </p>
         </div>
 
-        {/* Services */}
+   
         <div className="grid md:grid-cols-2 gap-6">
           <div className="bg-white shadow-md rounded-2xl p-6">
             <h3 className="text-lg font-semibold text-blue-700 mb-2">
@@ -66,7 +70,7 @@ export default function MainBody() {
               เพื่อการป้องกันโรคและส่งเสริมสุขภาพในระยะยาว
             </p>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
