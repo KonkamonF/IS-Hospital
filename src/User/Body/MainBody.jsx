@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../../assets/LogononBg.png";
+import Logo from "../../assets/LogononBG.png";
 
 export default function MainBody() {
   return (
